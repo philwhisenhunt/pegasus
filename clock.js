@@ -14,6 +14,7 @@ let blackFraction = blackTimeLeft % 600;
 document.getElementById("white-minutes").innerHTML = parseInt(whiteMinutes);
 document.getElementById("white-seconds").innerHTML = parseInt(whiteSeconds);
 document.getElementById("black-minutes").innerHTML = parseInt(blackMinutes);
+//add ability to see two zeros here
 document.getElementById("black-seconds").innerHTML = parseInt(blackSeconds);
 
 
