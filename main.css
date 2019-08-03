@@ -1,7 +1,7 @@
 .all{
     width: 90%;
     background-color: black;
-    height: 100vh;
+    height: 70vh;
 }
 #first{
     /* width: 50%; */
@@ -43,7 +43,7 @@
     width:50%;   
     float: left;
     background-color: whitesmoke;
-    height: 100vh;
+    height: 70vh;
     position: relative;
 
 
@@ -55,7 +55,7 @@
     width:50%; 
     float: right;
     background-color: chocolate;
-    height: 100vh;
+    height: 70vh;
 }
 
 .blocks{
@@ -65,4 +65,22 @@
     text-align:center;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 2em;
+}
+
+.button-panels{
+    width: 100%;
+    text-align: center;
+    
+}
+
+.actual-buttons{
+    background-color: chocolate; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 1em;
 }
