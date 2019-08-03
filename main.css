@@ -1,7 +1,6 @@
 .all{
     width: 90%;
-    background-color: black;
-    height: 70vh;
+    background-color: cream;
 }
 #first{
     /* width: 50%; */
@@ -59,9 +58,9 @@
 }
 
 .blocks{
-    height: 15vh;
-    min-height: 15vh;
-    color: white; 
+    height: 10vh;
+    min-height: 10vh;
+    color: chocolate; 
     text-align:center;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 2em;
