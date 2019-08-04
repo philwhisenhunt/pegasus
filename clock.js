@@ -17,7 +17,8 @@ document.getElementById("black-minutes").innerHTML = parseInt(blackMinutes);
 //add ability to see two zeros here
 document.getElementById("black-seconds").innerHTML = parseInt(blackSeconds);
 
-
+//add ability to toggle time
+document.addEventListener("white-time-arrow-up", function())//continue here
 
 
 window.addEventListener('keydown', function(e) {
