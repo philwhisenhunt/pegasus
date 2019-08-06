@@ -18,12 +18,15 @@ document.getElementById("black-minutes").innerHTML = parseInt(blackMinutes);
 document.getElementById("black-seconds").innerHTML = parseInt(blackSeconds);
 
 //add ability to toggle time
-document.addEventListener("white-time-arrow-up", function())//continue here
+//document.addEventListener("white-time-arrow-up", function())//continue here
+
+startButton = document.querySelector('.all');
 
 
 window.addEventListener('keydown', function(e) {
     if(e.keyCode == 32 && e.target == document.body) {
       e.preventDefault();
+      startButton.style.background = "red";
       if (e.keyCode == 32) {
         if(blackMove){
             whiteMove = true;
