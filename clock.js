@@ -1,124 +1,299 @@
-console.log("Working");
-let whiteTimeLeft = 300;
-let blackTimeLeft = 300;
-let whiteMove = true;
-let blackMove = false;
-let paused = true;
-let whiteMinutes = whiteTimeLeft/60;
-let whiteSeconds = whiteTimeLeft % 60;
-let blackMinutes = whiteTimeLeft/60;
-let blackSeconds = whiteTimeLeft % 60;
-let whiteFraction = whiteTimeLeft % 600;
-let blackFraction = blackTimeLeft % 600;
+let countdownDisplay1 = document.querySelector('#first');
+const userSetMinutesPlayer1 = 2.0;
+let preciseTimerSetting1 = userSetMinutesPlayer1 * 60 * 1000;
+let startButton = document.querySelector('#startButton');
 
-document.getElementById("white-minutes").innerHTML = parseInt(whiteMinutes);
-document.getElementById("white-seconds").innerHTML = parseInt(whiteSeconds);
-document.getElementById("black-minutes").innerHTML = parseInt(blackMinutes);
-//add ability to see two zeros here
-document.getElementById("black-seconds").innerHTML = parseInt(blackSeconds);
+let startTime1;
+let updatedTime1;
+let difference1 = 0;
+let timeInterval1;
+let savedTime1;
+let paused1 = 0;
+let running1 = 0;
+let timeRemaining1 = preciseTimerSetting1 - difference1;
 
-//add ability to toggle time
-//document.addEventListener("white-time-arrow-up", function())//continue here
+let minutes1 = Math.floor((timeRemaining1 % (1000 * 60 * 60)) / (1000*60));
+let seconds1 = Math.floor((timeRemaining1 % (1000 * 60)) / 1000);
+let milliseconds1 = Math.floor((timeRemaining1 % (1000* 60)) / 100);
 
-startButton = document.querySelector('.all');
+minutes1 = (minutes1 < 10) ? "0" + minutes1 : minutes1;
+seconds1 = (seconds1 < 10) ? "0" + seconds1 : seconds1;
+milliseconds1 = (milliseconds1 < 10) ? "0" + milliseconds1 : milliseconds1;
+
+countdownDisplay1.innerHTML = minutes1 + ":" + seconds1 + ":" + milliseconds1;
+
+
+//-------------
+
+let countdownDisplay2 = document.querySelector('#second');
+const userSetMinutesPlayer2 = 2.0;
+let preciseTimerSetting2 = userSetMinutesPlayer2 * 60 * 1000;
+
+
+let startTime2;
+let updatedTime2;
+let difference2 = 0;
+let timeInterval2;
+let savedTime2;
+let paused2 = 0;
+let running2 = 0;
+let timeRemaining2 = preciseTimerSetting2 - difference2;
+
+let minutes2 = Math.floor((timeRemaining2 % (1000 * 60 * 60)) / (1000*60));
+let seconds2 = Math.floor((timeRemaining2 % (1000 * 60)) / 1000);
+let milliseconds2 = Math.floor((timeRemaining2 % (1000* 60)) / 100);
+
+minutes2 = (minutes2 < 10) ? "0" + minutes2 : minutes2;
+seconds2 = (seconds2 < 10) ? "0" + seconds2 : seconds2;
+milliseconds2 = (milliseconds2 < 10) ? "0" + milliseconds2 : milliseconds2;
+
+countdownDisplay2.innerHTML = minutes2 + ":" + seconds2 + ":" + milliseconds2;
+
+
+
+function pauseCountdown1() {
+    if (!difference1){
+        //if the timer never started, then don't do a thing
+    }
+
+    else if (!paused1) {
+        clearInterval(timeInterval1);
+        savedTime1 = difference1;
+        paused1 = 1;
+        running1 = 0;
+
+    }
+
+    else {
+        startCountdown1();
+    }
+}
+
+function resetCountdown1(){
+    console.log('Reset button was clicked');
+    clearInterval(timeInterval1);
+    savedTime1 = 0;
+    difference1 = 0;
+    paused1 = 0;
+    running1 = 0;
+    let preciseTimerSetting1 = userSetMinutesPlayer1 * 60 * 1000;
+    let timeRemaining1 = preciseTimerSetting1 - difference1;
+
+
+
+minutes1 = Math.floor((timeRemaining1 % (1000 * 60 * 60)) / (1000*60));
+seconds1 = Math.floor((timeRemaining1 % (1000 * 60)) / 1000);
+milliseconds1 = Math.floor((timeRemaining1 % (1000* 60)) /100);
+
+minutes1 = (minutes1 < 10) ? "0" + minutes1 : minutes1;
+seconds1 = (seconds1 < 10) ? "0" + seconds1 : seconds1;
+milliseconds1 = (milliseconds1 < 10) ? "0" + milliseconds1 : milliseconds1;
+
+countdownDisplay1.innerHTML = minutes1 + ":" + seconds1 + ":" + milliseconds1;
+
+}
+
+
+function startCountdown1(){
+    console.log("working startCountdown");
+    if(!running1){
+        //grab the start time
+        startTime1 = new Date().getTime();
+
+        // run the function getDisplayTime1 every millisecond
+        timeInterval1 = setInterval(getDisplayTime1, 1);   
+
+        //Pause the second timer
+        pauseCountdown2();
+        //unpause the first timer and set it to running 
+        paused1 = 0;
+        running1 = 1;
+        countdownDisplay1.style.color = "black";
+    } 
+
+
+}
+
+
+
+function getDisplayTime1(){
+    updatedTime1 = new Date().getTime();
+    if (savedTime1){
+        difference1 = (updatedTime1 - startTime1) + savedTime1;
+        timeRemaining1 = (preciseTimerSetting1 - difference1);
+
+    }
+    else {
+        
+        difference1 = updatedTime1 - startTime1;
+        timeRemaining1 = preciseTimerSetting1 - difference1;
+       
+    }
+    minutes1 = Math.floor((timeRemaining1 % (1000 * 60 * 60)) / (1000*60));
+    seconds1 = Math.floor((timeRemaining1 % (1000 * 60)) / 1000);
+    milliseconds1 = Math.floor((timeRemaining1 % (1000* 60)) /100);
+
+
+    if(minutes1 <= 0){
+        minutes1 = 0;
+    }
+
+    if(seconds1 <= 0){
+        seconds1 = 0;
+    }
+
+    if(milliseconds1 <= 0){
+        milliseconds1 = 0;
+    }
+    
+    minutes1 = (minutes1 < 10) ? "0" + minutes1 : minutes1;
+    seconds1 = (seconds1 < 10) ? "0" + seconds1 : seconds1;
+    milliseconds1 = (milliseconds1 < 10) ? "0" + milliseconds1 : milliseconds1;
+
+  
+    console.log("The Milliseconds are at: " + milliseconds1);
+    countdownDisplay1.innerHTML = minutes1 + ":" + seconds1 + ":" + milliseconds1;
+    // countdownDisplay1.innerHTML = minutes1 + ":" + seconds1;
+
+}
+
+
+
+
+//---------------------------------
+//these are for second clock
+
+function pauseCountdown2() {
+    if (!difference2){
+        //if the timer never started, then don't do a thing
+    }
+
+    else if (!paused2) {
+        clearInterval(timeInterval2);
+        savedTime2 = difference2;
+        paused2 = 1;
+        running2 = 0;
+
+    }
+
+    else {
+        startCountdown2();
+    }
+}
+
+function resetCountdown2(){
+    console.log('Reset button was clicked');
+    clearInterval(timeInterval2);
+    savedTime2 = 0;
+    difference2 = 0;
+    paused2 = 0;
+    running2 = 0;
+    let preciseTimerSetting2 = userSetMinutesPlayer2 * 60 * 1000;
+    let timeRemaining2 = preciseTimerSetting2 - difference2;
+
+
+
+minutes2 = Math.floor((timeRemaining2 % (1000 * 60 * 60)) / (1000*60));
+seconds2 = Math.floor((timeRemaining2 % (1000 * 60)) / 1000);
+milliseconds2 = Math.floor((timeRemaining2 % (1000* 60)) /100);
+
+minutes2 = (minutes2 < 10) ? "0" + minutes2 : minutes2;
+seconds2 = (seconds2 < 10) ? "0" + seconds2 : seconds2;
+milliseconds2 = (milliseconds2 < 10) ? "0" + milliseconds2 : milliseconds2;
+
+countdownDisplay2.innerHTML = minutes2 + ":" + seconds2 + ":" + milliseconds2;
+
+}
+
+
+function startCountdown2(){
+    console.log("working startCountdown");
+    if(!running2){
+        //grab the start time
+        startTime2 = new Date().getTime();
+
+        // run the function getDisplayTime2 every millisecond
+        timeInterval2 = setInterval(getDisplayTime2, 1);
+
+        //Pause the first timer
+        pauseCountdown1();
+        //unpause the first timer and set it to running 
+        paused1 = 0;
+        running2 = 1;
+        countdownDisplay2.style.color = "black";
+    } 
+
+
+}
+
+
+
+function getDisplayTime2(){
+    updatedTime2 = new Date().getTime();
+    if (savedTime2){
+        difference2 = (updatedTime2 - startTime2) + savedTime2;
+        timeRemaining2 = (preciseTimerSetting2 - difference2);
+
+    }
+    else {
+        
+        difference2 = updatedTime2 - startTime2;
+        timeRemaining2 = preciseTimerSetting2 - difference2;
+       
+    }
+    minutes2 = Math.floor((timeRemaining2 % (1000 * 60 * 60)) / (1000*60));
+    seconds2 = Math.floor((timeRemaining2 % (1000 * 60)) / 1000);
+    milliseconds2 = Math.floor((timeRemaining2 % (1000* 60)) /100);
+
+
+    if(minutes2 <= 0){
+        minutes2 = 0;
+    }
+
+    if(seconds2 <= 0){
+        seconds2 = 0;
+    }
+
+    if(milliseconds2 <= 0){
+        milliseconds2 = 0;
+    }
+    
+    minutes2 = (minutes2 < 10) ? "0" + minutes2 : minutes2;
+    seconds2 = (seconds2 < 10) ? "0" + seconds2 : seconds2;
+    milliseconds2 = (milliseconds2 < 10) ? "0" + milliseconds2 : milliseconds2;
+
+  
+    console.log("The Milliseconds are at: " + milliseconds2);
+    countdownDisplay2.innerHTML = minutes2 + ":" + seconds2 + ":" + milliseconds2;
+    // countdownDisplay2.innerHTML = minutes2 + ":" + seconds2;
+
+}
 
 
 window.addEventListener('keydown', function(e) {
+    //if the spacebar is pressed
     if(e.keyCode == 32 && e.target == document.body) {
       e.preventDefault();
-      startButton.style.background = "red";
+      startButton.style.color = "red";
       if (e.keyCode == 32) {
-        if(blackMove){
-            whiteMove = true;
-            blackMove = false;
+        if(running1 && !running2){
+            startCountdown2();
         }
-        else{
+        else if(running2 && !running1){
+            startCountdown1();
             
-            blackMove = true;
-            whiteMove = false;
+            
+        }
+
+        else if(!running1 && !running2){
+            startCountdown1();
+        }
+      
+        else{
+            console.log("Error 4");
         }
 
       }
     }
 }
-  );   
-
-
-window.addEventListener('keydown', function(e){
-    if(e.keyCode == 80 &&e.target == this.document.body){
-        e.preventDefault();
-        if (e.keyCode == 80 && !paused){
-            paused = true;
-
-        }
-        else{
-            paused = false;
-        }
-    }
-})
-
-setInterval(decreaser, 1000);
-
-
-function decreaser(){
-
-    if (!paused){
-
-    
-        if(whiteMove){
-            if(whiteTimeLeft > 0){
-                console.log("white time left is " + whiteTimeLeft);
-                //document.getElementById("first").innerHTML = parseInt(whiteTimeLeft);
-                //document.getElementById("first").innerHTML = parseInt(whiteMinutes);
-
-                whiteMinutes = whiteTimeLeft/60;
-                whiteSeconds = whiteTimeLeft % 60;
-
-                document.getElementById("white-minutes").innerHTML = parseInt(whiteMinutes);
-                document.getElementById("white-seconds").innerHTML = parseInt(whiteSeconds);
-
-                whiteTimeLeft--;
-                
-        
-            }
-            else{
-                whiteMove=false;
-                document.getElementById("first").innerHTML = parseInt(0);
-            }
-        }
-        
-        if(blackMove){
-            if(blackTimeLeft > 0){
-                //console.log(blackTimeLeft);
-               // document.getElementById("second").innerHTML = parseInt(blackTimeLeft);
-
-                blackMinutes = blackTimeLeft/60;
-                blackSeconds = blackTimeLeft % 60;
-
-                document.getElementById("black-minutes").innerHTML = parseInt(blackMinutes);
-                document.getElementById("black-seconds").innerHTML = parseInt(blackSeconds);
-               
-                blackTimeLeft--;
-
-            }
-            else{
-                blackMove = false;
-                document.getElementById("second").innerHTML = "Game Overz";
-            }
-        }
-        // console.log("Whitemove is " + whiteMove);
-        // console.log("blackMove is " + blackMove);
-
-        if(!paused && !whiteMove && !blackMove){
-            document.getElementById("first").innerHTML = "0:00";
-            document.getElementById("second").innerHTML = "0:00";
-        }
-            
-        
-    
-    
-    
-    }
-}
-
-
+);
