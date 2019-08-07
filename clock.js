@@ -47,7 +47,7 @@ minutes2 = (minutes2 < 10) ? "0" + minutes2 : minutes2;
 seconds2 = (seconds2 < 10) ? "0" + seconds2 : seconds2;
 milliseconds2 = (milliseconds2 < 10) ? "0" + milliseconds2 : milliseconds2;
 
-countdownDisplay1.innerHTML = minutes2 + ":" + seconds2 + ":" + milliseconds2;
+countdownDisplay2.innerHTML = minutes2 + ":" + seconds2 + ":" + milliseconds2;
 
 
 
@@ -151,5 +151,114 @@ function getDisplayTime1(){
     console.log("The Milliseconds are at: " + milliseconds1);
     countdownDisplay1.innerHTML = minutes1 + ":" + seconds1 + ":" + milliseconds1;
     // countdownDisplay1.innerHTML = minutes1 + ":" + seconds1;
+
+}
+
+
+
+
+//---------------------------------
+//these are for second clock
+
+function pauseCountdown2() {
+    if (!difference2){
+        //if the timer never started, then don't do a thing
+    }
+
+    else if (!paused2) {
+        clearInterval(timeInterval2);
+        savedTime2 = difference2;
+        paused2 = 1;
+        running2 = 0;
+
+    }
+
+    else {
+        startCountdown2();
+    }
+}
+
+function resetCountdown2(){
+    console.log('Reset button was clicked');
+    clearInterval(timeInterval2);
+    savedTime2 = 0;
+    difference2 = 0;
+    paused2 = 0;
+    running2 = 0;
+    let preciseTimerSetting2 = userSetMinutesPlayer2 * 60 * 1000;
+    let timeRemaining2 = preciseTimerSetting2 - difference2;
+
+
+
+minutes2 = Math.floor((timeRemaining2 % (1000 * 60 * 60)) / (1000*60));
+seconds2 = Math.floor((timeRemaining2 % (1000 * 60)) / 1000);
+milliseconds2 = Math.floor((timeRemaining2 % (1000* 60)) /100);
+
+minutes2 = (minutes2 < 10) ? "0" + minutes2 : minutes2;
+seconds2 = (seconds2 < 10) ? "0" + seconds2 : seconds2;
+milliseconds2 = (milliseconds2 < 10) ? "0" + milliseconds2 : milliseconds2;
+
+countdownDisplay2.innerHTML = minutes2 + ":" + seconds2 + ":" + milliseconds2;
+
+}
+
+
+function startCountdown2(){
+    console.log("working startCountdown");
+    if(!running2){
+        //grab the start time
+        startTime2 = new Date().getTime();
+
+        // run the function getDisplayTime2 every millisecond
+        timeInterval2 = setInterval(getDisplayTime2, 1);
+
+        paused2 = 0;
+        running2 = 1;
+        countdownDisplay2.style.color = "black";
+    } 
+
+
+}
+
+
+
+function getDisplayTime2(){
+    updatedTime2 = new Date().getTime();
+    if (savedTime2){
+        difference2 = (updatedTime2 - startTime2) + savedTime2;
+        timeRemaining2 = (preciseTimerSetting2 - difference2);
+
+    }
+    else {
+        
+        difference2 = updatedTime2 - startTime2;
+        timeRemaining2 = preciseTimerSetting2 - difference2;
+       
+    }
+    minutes2 = Math.floor((timeRemaining2 % (1000 * 60 * 60)) / (1000*60));
+    seconds2 = Math.floor((timeRemaining2 % (1000 * 60)) / 1000);
+    milliseconds2 = Math.floor((timeRemaining2 % (1000* 60)) /100);
+
+
+    if(minutes2 <= 0){
+        minutes2 = 0;
+    }
+
+    if(seconds2 <= 0){
+        seconds2 = 0;
+    }
+
+    if(milliseconds2 <= 0){
+        milliseconds2 = 0;
+    }
+    
+    minutes2 = (minutes2 < 10) ? "0" + minutes2 : minutes2;
+    seconds2 = (seconds2 < 10) ? "0" + seconds2 : seconds2;
+    milliseconds2 = (milliseconds2 < 10) ? "0" + milliseconds2 : milliseconds2;
+
+  
+    console.log("The Milliseconds are at: " + milliseconds2);
+    countdownDisplay2.innerHTML = minutes2 + ":" + seconds2 + ":" + milliseconds2;
+    // countdownDisplay2.innerHTML = minutes2 + ":" + seconds2;
 
 }

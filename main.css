@@ -73,6 +73,18 @@
 }
 
 .actual-buttons{
+    background-color: rgb(187, 187, 187); /* Green */
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 1em;
+}
+
+.actual-buttons-2{
     background-color: chocolate; /* Green */
     border: none;
     color: white;
