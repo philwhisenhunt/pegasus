@@ -23,12 +23,6 @@ milliseconds = (milliseconds < 10) ? "0" + milliseconds : milliseconds;
 countdownDisplay1.innerHTML = minutes + ":" + seconds + ":" + milliseconds;
 
 
-// startButton = document.querySelector('.all');
-
-
-
-
-//  setInterval(startDecreaser, 1000);
 
 function pauseCountdown1() {
     if (!difference1){
@@ -130,10 +124,3 @@ function getDisplayTime1(){
     console.log("The Milliseconds are at: " + milliseconds1);
     countdownDisplay1.innerHTML = minutes1 + ":" + seconds1 + ":" + milliseconds1;
 }
-
-
-
-
-
-
-
