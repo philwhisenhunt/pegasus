@@ -1,5 +1,5 @@
 let countdownDisplay1 = document.querySelector('#first');
-const userSetMinutesPlayer1 = 5.0;
+const userSetMinutesPlayer1 = 2.0;
 let preciseTimerSetting1 = userSetMinutesPlayer1 * 60 * 1000;
 
 
@@ -26,7 +26,7 @@ countdownDisplay1.innerHTML = minutes1 + ":" + seconds1 + ":" + milliseconds1;
 //-------------
 
 let countdownDisplay2 = document.querySelector('#second');
-const userSetMinutesPlayer2 = 5.05;
+const userSetMinutesPlayer2 = 2.0;
 let preciseTimerSetting2 = userSetMinutesPlayer2 * 60 * 1000;
 
 
@@ -101,8 +101,11 @@ function startCountdown1(){
         startTime1 = new Date().getTime();
 
         // run the function getDisplayTime1 every millisecond
-        timeInterval1 = setInterval(getDisplayTime1, 1);
+        timeInterval1 = setInterval(getDisplayTime1, 1);   
 
+        //Pause the second timer
+        pauseCountdown2();
+        //unpause the first timer and set it to running 
         paused1 = 0;
         running1 = 1;
         countdownDisplay1.style.color = "black";
@@ -212,7 +215,10 @@ function startCountdown2(){
         // run the function getDisplayTime2 every millisecond
         timeInterval2 = setInterval(getDisplayTime2, 1);
 
-        paused2 = 0;
+        //Pause the first timer
+        pauseCountdown1();
+        //unpause the first timer and set it to running 
+        paused1 = 0;
         running2 = 1;
         countdownDisplay2.style.color = "black";
     } 
@@ -261,4 +267,14 @@ function getDisplayTime2(){
     countdownDisplay2.innerHTML = minutes2 + ":" + seconds2 + ":" + milliseconds2;
     // countdownDisplay2.innerHTML = minutes2 + ":" + seconds2;
 
+}
+
+function sessionStarter(){
+
+    //if nothing is started, then start the first countdown
+    // then, build in a pause to each countdown function. 
+    //Or, I could just build these both into the first few functions themselves, since each part is unique. 
+    // startCountdown1();
+
+    //
 }
