@@ -11,7 +11,14 @@ let whiteFraction = whiteTimeLeft % 600;
 let blackFraction = blackTimeLeft % 600;
 
 let countdownDisplayer1 = document.querySelector('#first');
-let startTime1 = new Date().getTime();
+let startTime1;
+let running1 = 0;
+let paused1 = 0;
+let savedTime1;
+let tInterval1;
+let difference1;
+let initialTimeAllowed = 3000;
+
 
  
 
@@ -129,23 +136,52 @@ function startDecreaser(){
     }
 }
 
+function startCountdown1(){
+    console.log('It has begun');
+    if(!running1){
+        startTime1 = new Date().getTime();
+        tInterval1 = setInterval(getDisplayTime1, 1000);
+
+        paused = 0;
+        running1 = 1;
+
+        
+        
+    }
+}
+
 function getDisplayTime1(){
+    
     updatedTime1 = new Date().getTime();
+    if(savedTime1){
+        difference1 = (updatedTime1 - startTime1) - savedTime1;
+    } else {
+        difference1 = (updatedTime1 - startTime1);
+    
 
-    //this will need to go in an else statement
-    difference1 = startTime1 - updatedTime1;
-
-    let hours1 = Math.floor((difference1 % (1000*60*60*24)) / (1000*60*60));
+    let hours1 = Math.floor((difference1 % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    
     let minutes1 = Math.floor((difference1 % (1000 * 60 * 60)) / (1000 * 60));
+    // minutes1 = savedTime1 - minutes1;
     let seconds1 = Math.floor((difference1 % (1000 * 60)) / 1000);
+    let subtractedSeconds1 = Math.floor((initialTimeAllowed - seconds1) % (60));
+    
     let milliseconds1 = Math.floor(difference1 % (1000 * 60)) / 100;
-    hours1 = (hours1 < 10) ? "z" + hours1 : hours1;
+    //let subtractedMilliseconds1 = Math.floor((initialTimeAllowed - seconds1) % (60));
+
+    hours1 = (hours1 < 10) ? "0" + hours1 : hours1;
     minutes1 = (minutes1 < 10) ? "0" + minutes1 : minutes1;
     seconds1 = (seconds1 < 10) ? "0" + seconds1 : seconds1;
     milliseconds1 = (milliseconds1 < 100 ) ? (milliseconds1 < 10 ) ? "00" + milliseconds1 : "0" + milliseconds1 : milliseconds1;
-    countdownDisplayer1.innerHTML = hours1 + '::' + minutes1 + ':' + seconds1 + ':' + milliseconds1;
+    // countdownDisplayer1.innerHTML = hours1 + ':' + minutes1 + ':' + seconds1 + ':' + milliseconds1;
+    countdownDisplayer1.innerHTML = hours1 + ':' + minutes1 + ':' + subtractedSeconds1;
+
+    }
 }
-console.log('here');
-getDisplayTime1();
+
+
+
+
+
 
 
