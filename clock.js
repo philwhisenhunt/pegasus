@@ -70,7 +70,6 @@ function pauseCountdown1() {
 }
 
 function resetCountdown1(){
-    console.log('Reset button was clicked');
     clearInterval(timeInterval1);
     savedTime1 = 0;
     difference1 = 0;
@@ -95,7 +94,6 @@ countdownDisplay1.innerHTML = minutes1 + ":" + seconds1 + ":" + milliseconds1;
 
 
 function startCountdown1(){
-    console.log("working startCountdown");
     if(!running1){
         //grab the start time
         startTime1 = new Date().getTime();
@@ -151,7 +149,6 @@ function getDisplayTime1(){
     milliseconds1 = (milliseconds1 < 10) ? "0" + milliseconds1 : milliseconds1;
 
   
-    console.log("The Milliseconds are at: " + milliseconds1);
     countdownDisplay1.innerHTML = minutes1 + ":" + seconds1 + ":" + milliseconds1;
     // countdownDisplay1.innerHTML = minutes1 + ":" + seconds1;
 
@@ -182,7 +179,6 @@ function pauseCountdown2() {
 }
 
 function resetCountdown2(){
-    console.log('Reset button was clicked');
     clearInterval(timeInterval2);
     savedTime2 = 0;
     difference2 = 0;
@@ -207,7 +203,6 @@ countdownDisplay2.innerHTML = minutes2 + ":" + seconds2 + ":" + milliseconds2;
 
 
 function startCountdown2(){
-    console.log("working startCountdown");
     if(!running2){
         //grab the start time
         startTime2 = new Date().getTime();
@@ -263,7 +258,6 @@ function getDisplayTime2(){
     milliseconds2 = (milliseconds2 < 10) ? "0" + milliseconds2 : milliseconds2;
 
   
-    console.log("The Milliseconds are at: " + milliseconds2);
     countdownDisplay2.innerHTML = minutes2 + ":" + seconds2 + ":" + milliseconds2;
     // countdownDisplay2.innerHTML = minutes2 + ":" + seconds2;
 
