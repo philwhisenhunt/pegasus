@@ -1,7 +1,7 @@
 let countdownDisplay1 = document.querySelector('#first');
 const userSetMinutesPlayer1 = 2.0;
 let preciseTimerSetting1 = userSetMinutesPlayer1 * 60 * 1000;
-
+let startButton = document.querySelector('#startButton');
 
 let startTime1;
 let updatedTime1;
@@ -269,12 +269,31 @@ function getDisplayTime2(){
 
 }
 
-function sessionStarter(){
 
-    //if nothing is started, then start the first countdown
-    // then, build in a pause to each countdown function. 
-    //Or, I could just build these both into the first few functions themselves, since each part is unique. 
-    // startCountdown1();
+window.addEventListener('keydown', function(e) {
+    //if the spacebar is pressed
+    if(e.keyCode == 32 && e.target == document.body) {
+      e.preventDefault();
+      startButton.style.color = "red";
+      if (e.keyCode == 32) {
+        if(running1 && !running2){
+            startCountdown2();
+        }
+        else if(running2 && !running1){
+            startCountdown1();
+            
+            
+        }
 
-    //
+        else if(!running1 && !running2){
+            startCountdown1();
+        }
+      
+        else{
+            console.log("Error 4");
+        }
+
+      }
+    }
 }
+);
