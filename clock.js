@@ -1,5 +1,5 @@
 let countdownDisplay1 = document.querySelector('#first');
-const userSetMinutesPlayer1 = 5.05;
+const userSetMinutesPlayer1 = 5.0;
 let preciseTimerSetting1 = userSetMinutesPlayer1 * 60 * 1000;
 
 
@@ -12,15 +12,42 @@ let paused1 = 0;
 let running1 = 0;
 let timeRemaining1 = preciseTimerSetting1 - difference1;
 
-let minutes = Math.floor((timeRemaining1 % (1000 * 60 * 60)) / (1000*60));
-let seconds = Math.floor((timeRemaining1 % (1000 * 60)) / 1000);
-let milliseconds = Math.floor((timeRemaining1 % (1000* 60)) / 100);
+let minutes1 = Math.floor((timeRemaining1 % (1000 * 60 * 60)) / (1000*60));
+let seconds1 = Math.floor((timeRemaining1 % (1000 * 60)) / 1000);
+let milliseconds1 = Math.floor((timeRemaining1 % (1000* 60)) / 100);
 
-minutes = (minutes < 10) ? "0" + minutes : minutes;
-seconds = (seconds < 10) ? "0" + seconds : seconds;
-milliseconds = (milliseconds < 10) ? "0" + milliseconds : milliseconds;
+minutes1 = (minutes1 < 10) ? "0" + minutes1 : minutes1;
+seconds1 = (seconds1 < 10) ? "0" + seconds1 : seconds1;
+milliseconds1 = (milliseconds1 < 10) ? "0" + milliseconds1 : milliseconds1;
 
-countdownDisplay1.innerHTML = minutes + ":" + seconds + ":" + milliseconds;
+countdownDisplay1.innerHTML = minutes1 + ":" + seconds1 + ":" + milliseconds1;
+
+
+//-------------
+
+let countdownDisplay2 = document.querySelector('#second');
+const userSetMinutesPlayer2 = 5.05;
+let preciseTimerSetting2 = userSetMinutesPlayer2 * 60 * 1000;
+
+
+let startTime2;
+let updatedTime2;
+let difference2 = 0;
+let timeInterval2;
+let savedTime2;
+let paused2 = 0;
+let running2 = 0;
+let timeRemaining2 = preciseTimerSetting2 - difference2;
+
+let minutes2 = Math.floor((timeRemaining2 % (1000 * 60 * 60)) / (1000*60));
+let seconds2 = Math.floor((timeRemaining2 % (1000 * 60)) / 1000);
+let milliseconds2 = Math.floor((timeRemaining2 % (1000* 60)) / 100);
+
+minutes2 = (minutes2 < 10) ? "0" + minutes2 : minutes2;
+seconds2 = (seconds2 < 10) ? "0" + seconds2 : seconds2;
+milliseconds2 = (milliseconds2 < 10) ? "0" + milliseconds2 : milliseconds2;
+
+countdownDisplay1.innerHTML = minutes2 + ":" + seconds2 + ":" + milliseconds2;
 
 
 
@@ -54,15 +81,15 @@ function resetCountdown1(){
 
 
 
-let minutes = Math.floor((timeRemaining1 % (1000 * 60 * 60)) / (1000*60));
-let seconds = Math.floor((timeRemaining1 % (1000 * 60)) / 1000);
-let milliseconds = Math.floor((timeRemaining1 % (1000* 60)) /100);
+minutes1 = Math.floor((timeRemaining1 % (1000 * 60 * 60)) / (1000*60));
+seconds1 = Math.floor((timeRemaining1 % (1000 * 60)) / 1000);
+milliseconds1 = Math.floor((timeRemaining1 % (1000* 60)) /100);
 
-minutes = (minutes < 10) ? "0" + minutes : minutes;
-seconds = (seconds < 10) ? "0" + seconds : seconds;
-milliseconds = (milliseconds < 10) ? "0" + milliseconds : milliseconds;
+minutes1 = (minutes1 < 10) ? "0" + minutes1 : minutes1;
+seconds1 = (seconds1 < 10) ? "0" + seconds1 : seconds1;
+milliseconds1 = (milliseconds1 < 10) ? "0" + milliseconds1 : milliseconds1;
 
-countdownDisplay1.innerHTML = minutes + ":" + seconds + ":" + milliseconds;
+countdownDisplay1.innerHTML = minutes1 + ":" + seconds1 + ":" + milliseconds1;
 
 }
 
@@ -99,9 +126,9 @@ function getDisplayTime1(){
         timeRemaining1 = preciseTimerSetting1 - difference1;
        
     }
-    let minutes1 = Math.floor((timeRemaining1 % (1000 * 60 * 60)) / (1000*60));
-    let seconds1 = Math.floor((timeRemaining1 % (1000 * 60)) / 1000);
-    let milliseconds1 = Math.floor((timeRemaining1 % (1000* 60)) /100);
+    minutes1 = Math.floor((timeRemaining1 % (1000 * 60 * 60)) / (1000*60));
+    seconds1 = Math.floor((timeRemaining1 % (1000 * 60)) / 1000);
+    milliseconds1 = Math.floor((timeRemaining1 % (1000* 60)) /100);
 
 
     if(minutes1 <= 0){
@@ -123,4 +150,6 @@ function getDisplayTime1(){
   
     console.log("The Milliseconds are at: " + milliseconds1);
     countdownDisplay1.innerHTML = minutes1 + ":" + seconds1 + ":" + milliseconds1;
+    // countdownDisplay1.innerHTML = minutes1 + ":" + seconds1;
+
 }
