@@ -17,7 +17,11 @@ let paused1 = 0;
 let savedTime1;
 let tInterval1;
 let difference1;
-let initialTimeAllowed = 3000;
+let initialTotalTimeAllowed = 5;
+let initialSecondsAllowed = initialTotalTimeAllowed * 60;
+let initialMinutesAllowed = initialTotalTimeAllowed;
+//console.log(initialSecondsAllowed);
+ 
 
 
  
@@ -162,19 +166,24 @@ function getDisplayTime1(){
     let hours1 = Math.floor((difference1 % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     
     let minutes1 = Math.floor((difference1 % (1000 * 60 * 60)) / (1000 * 60));
-    // minutes1 = savedTime1 - minutes1;
+    console.log("minutes allowed: " + initialMinutesAllowed);
+    console.log("minutes1: " + minutes1);
+
+    let subtractedMinutes1 = Math.ceil(initialMinutesAllowed - minutes1);
+
+    1;
     let seconds1 = Math.floor((difference1 % (1000 * 60)) / 1000);
-    let subtractedSeconds1 = Math.floor((initialTimeAllowed - seconds1) % (60));
+    let subtractedSeconds1 = Math.floor((initialSecondsAllowed - seconds1) % (60));
     
     let milliseconds1 = Math.floor(difference1 % (1000 * 60)) / 100;
-    //let subtractedMilliseconds1 = Math.floor((initialTimeAllowed - seconds1) % (60));
+    //let subtractedMilliseconds1 = Math.floor((initialSecondsAllowed - seconds1) % (60));
 
     hours1 = (hours1 < 10) ? "0" + hours1 : hours1;
     minutes1 = (minutes1 < 10) ? "0" + minutes1 : minutes1;
     seconds1 = (seconds1 < 10) ? "0" + seconds1 : seconds1;
     milliseconds1 = (milliseconds1 < 100 ) ? (milliseconds1 < 10 ) ? "00" + milliseconds1 : "0" + milliseconds1 : milliseconds1;
     // countdownDisplayer1.innerHTML = hours1 + ':' + minutes1 + ':' + seconds1 + ':' + milliseconds1;
-    countdownDisplayer1.innerHTML = hours1 + ':' + minutes1 + ':' + subtractedSeconds1;
+    countdownDisplayer1.innerHTML = hours1 + ':' + subtractedMinutes1 + ':' + subtractedSeconds1;
 
     }
 }
