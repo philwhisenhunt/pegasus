@@ -280,22 +280,13 @@ window.addEventListener('keydown', function(e) {
       e.preventDefault();
       startButton.style.color = "red";
       if (e.keyCode == 32) {
-        if(running1 && !running2){
-            startCountdown2();
-        }
-        else if(running2 && !running1){
-            startCountdown1();
-            
-            
-        }
+          if(!running1){
+              startCountdown1();
+          }
+          else{
+              console.log("It is not true");
+          }
 
-        else if(!running1 && !running2){
-            startCountdown1();
-        }
-      
-        else{
-            console.log("Error 4");
-        }
 
       }
     }
