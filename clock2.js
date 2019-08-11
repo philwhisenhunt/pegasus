@@ -60,6 +60,8 @@ const countdownTimer = {
     },
 
     getDisplayTime: function(){
+
+        //how to I pull out the start time from a different method in the same object?
         updatedTime1 = new Date().getTime();
         if (savedTime1){
             difference1 = (updatedTime1 - startTime1) + savedTime1;
