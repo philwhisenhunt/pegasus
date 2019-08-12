@@ -28,7 +28,7 @@ const countdownTimer = {
 
     reset: function(){
         clearInterval(timeInterval1);
-        savedTime1 = 0;
+        savedTime = 0;
         difference1 = 0;
         paused1 = 0;
         running1 = 0;
@@ -65,7 +65,7 @@ const countdownTimer = {
 
         //how to I pull out the start time from a different method in the same object?
         updatedTime1 = new Date().getTime();
-        if (savedTime1){
+        if (savedTime){
             difference1 = (updatedTime1 - startTime1) + savedTime1;
             timeRemaining1 = (preciseTimerSetting1 - difference1);
     
