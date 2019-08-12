@@ -2,19 +2,21 @@ console.log('working at all?');
 const countdownTimer = {
     startTime: null,
     paused: false,
+    savedTime: null,
     pause: function() {
         this.paused = true;
         console.log("Working");
 
-        if (!difference1){
+        if (!difference){
             //if the timer never started, then don't do a thing
         }
     
-        else if (!paused1) {
-            clearInterval(timeInterval1);
-            savedTime1 = difference1;
-            paused1 = 1;
-            running1 = 0;
+        else if (!paused) {
+            clearInterval(timeInterval);
+            savedTime = difference;
+            paused = 1;
+            running = 0;
+            return savedTime;
     
         }
     
