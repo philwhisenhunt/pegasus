@@ -1,10 +1,11 @@
-console.log('working at all?');
 const countdownTimer = {
     startTime: null,
     paused: false,
     savedTime: null,
     preciseTimerSetting: null,
     timeRemaining: null,
+    countdownDisplay1 = document.querySelector('#first');
+
     pause: function() {
         this.paused = true;
         console.log("Working");
@@ -35,7 +36,7 @@ const countdownTimer = {
         paused1 = 0;
         running1 = 0;
         this.preciseTimerSetting = userSetMinutesPlayer1 * 60 * 1000;
-        let timeRemaining = preciseTimerSetting - difference1;
+        timeRemaining = this.preciseTimerSetting - difference1;
     
     
     
@@ -69,13 +70,13 @@ const countdownTimer = {
         updatedTime1 = new Date().getTime();
         if (this.savedTime){
             difference1 = (updatedTime1 - startTime1) + savedTime1;
-            timeRemaining = (preciseTimerSetting - difference1);
+            timeRemaining = (this.preciseTimerSetting - difference1);
     
         }
         else {
             
             difference1 = updatedTime1 - startTime1;
-            timeRemaining = preciseTimerSetting - difference1;
+            timeRemaining = this.preciseTimerSetting - difference1;
            
         }
         minutes1 = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000*60));
@@ -100,7 +101,7 @@ const countdownTimer = {
         milliseconds1 = (milliseconds1 < 10) ? "0" + milliseconds1 : milliseconds1;
     
         if(timeRemaining <= 0 ){
-            firstClock.style.backgroundColor = '#FF6347';  
+            // this.firstClock.style.backgroundColor = '#FF6347';  
         }
     
         countdownDisplay1.innerHTML = minutes1 + ":" + seconds1 + ":" + milliseconds1;
