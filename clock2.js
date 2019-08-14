@@ -3,6 +3,8 @@ const countdownTimer = {
     startTime: null,
     paused: false,
     savedTime: null,
+    preciseTimerSetting: null,
+    timeRemaining: null,
     pause: function() {
         this.paused = true;
         console.log("Working");
@@ -28,18 +30,18 @@ const countdownTimer = {
 
     reset: function(){
         clearInterval(timeInterval1);
-        savedTime = 0;
+        this.savedTime = 0;
         difference1 = 0;
         paused1 = 0;
         running1 = 0;
-        let preciseTimerSetting1 = userSetMinutesPlayer1 * 60 * 1000;
-        let timeRemaining1 = preciseTimerSetting1 - difference1;
+        this.preciseTimerSetting = userSetMinutesPlayer1 * 60 * 1000;
+        let timeRemaining = preciseTimerSetting - difference1;
     
     
     
-        minutes1 = Math.floor((timeRemaining1 % (1000 * 60 * 60)) / (1000*60));
-        seconds1 = Math.floor((timeRemaining1 % (1000 * 60)) / 1000);
-        milliseconds1 = Math.floor((timeRemaining1 % (1000* 60)) /100);
+        minutes1 = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000*60));
+        seconds1 = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+        milliseconds1 = Math.floor((timeRemaining % (1000* 60)) /100);
         
         minutes1 = (minutes1 < 10) ? "0" + minutes1 : minutes1;
         seconds1 = (seconds1 < 10) ? "0" + seconds1 : seconds1;
@@ -65,20 +67,20 @@ const countdownTimer = {
 
         //how to I pull out the start time from a different method in the same object?
         updatedTime1 = new Date().getTime();
-        if (savedTime){
+        if (this.savedTime){
             difference1 = (updatedTime1 - startTime1) + savedTime1;
-            timeRemaining1 = (preciseTimerSetting1 - difference1);
+            timeRemaining = (preciseTimerSetting - difference1);
     
         }
         else {
             
             difference1 = updatedTime1 - startTime1;
-            timeRemaining1 = preciseTimerSetting1 - difference1;
+            timeRemaining = preciseTimerSetting - difference1;
            
         }
-        minutes1 = Math.floor((timeRemaining1 % (1000 * 60 * 60)) / (1000*60));
-        seconds1 = Math.floor((timeRemaining1 % (1000 * 60)) / 1000);
-        milliseconds1 = Math.floor((timeRemaining1 % (1000* 60)) /100);
+        minutes1 = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000*60));
+        seconds1 = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+        milliseconds1 = Math.floor((timeRemaining % (1000* 60)) /100);
     
     
         if(minutes1 <= 0){
@@ -97,7 +99,7 @@ const countdownTimer = {
         seconds1 = (seconds1 < 10) ? "0" + seconds1 : seconds1;
         milliseconds1 = (milliseconds1 < 10) ? "0" + milliseconds1 : milliseconds1;
     
-        if(timeRemaining1 <= 0 ){
+        if(timeRemaining <= 0 ){
             firstClock.style.backgroundColor = '#FF6347';  
         }
     
