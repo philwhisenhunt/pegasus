@@ -4,7 +4,7 @@ const countdownTimer = {
     savedTime: null,
     preciseTimerSetting: null,
     timeRemaining: null,
-    countdownDisplay1 = document.querySelector('#first');
+    countdownDisplay1: document.querySelector('#first'),
 
     pause: function() {
         this.paused = true;
@@ -61,7 +61,7 @@ const countdownTimer = {
         //Pause the second timer
         this.paused = false;
 
-        countdownDisplay1.style.color = "black";
+        this.countdownDisplay1.style.color = "black";
     },
 
     getDisplayTime: function(){
@@ -104,7 +104,7 @@ const countdownTimer = {
             // this.firstClock.style.backgroundColor = '#FF6347';  
         }
     
-        countdownDisplay1.innerHTML = minutes1 + ":" + seconds1 + ":" + milliseconds1;
+        this.countdownDisplay1.innerHTML = minutes1 + ":" + seconds1 + ":" + milliseconds1;
         // countdownDisplay1.innerHTML = minutes1 + ":" + seconds1;
     }
 
