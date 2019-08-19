@@ -5,6 +5,8 @@ const countdownTimer = {
     preciseTimerSetting: null,
     timeRemaining: null,
     countdownDisplay1: document.querySelector('#first'),
+     timeRemaining = preciseTimerSetting - difference1,
+
 
     pause: function() {
         this.paused = true;
@@ -62,6 +64,7 @@ const countdownTimer = {
         this.paused = false;
 
         this.countdownDisplay1.style.color = "black";
+        //how to get this to start the time? 
     },
 
     getDisplayTime: function(){
