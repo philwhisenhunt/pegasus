@@ -1,7 +1,11 @@
 let countdownDisplay1 = document.querySelector('#first');
-const userSetMinutesPlayer1 = 2.0;
+const userSetMinutesPlayer1 = .05;
 let preciseTimerSetting1 = userSetMinutesPlayer1 * 60 * 1000;
 let startButton = document.querySelector('#startButton');
+
+let firstClock = document.querySelector('#first-timer');
+let secondClock = document.querySelector('#second-timer');
+
 
 let startTime1;
 let updatedTime1;
@@ -26,7 +30,7 @@ countdownDisplay1.innerHTML = minutes1 + ":" + seconds1 + ":" + milliseconds1;
 //-------------
 
 let countdownDisplay2 = document.querySelector('#second');
-const userSetMinutesPlayer2 = 2.0;
+const userSetMinutesPlayer2 = .05;
 let preciseTimerSetting2 = userSetMinutesPlayer2 * 60 * 1000;
 
 
@@ -148,7 +152,10 @@ function getDisplayTime1(){
     seconds1 = (seconds1 < 10) ? "0" + seconds1 : seconds1;
     milliseconds1 = (milliseconds1 < 10) ? "0" + milliseconds1 : milliseconds1;
 
-  
+    if(timeRemaining1 <= 0 ){
+        firstClock.style.backgroundColor = '#FF6347';  
+    }
+
     countdownDisplay1.innerHTML = minutes1 + ":" + seconds1 + ":" + milliseconds1;
     // countdownDisplay1.innerHTML = minutes1 + ":" + seconds1;
 
@@ -257,7 +264,10 @@ function getDisplayTime2(){
     seconds2 = (seconds2 < 10) ? "0" + seconds2 : seconds2;
     milliseconds2 = (milliseconds2 < 10) ? "0" + milliseconds2 : milliseconds2;
 
-  
+    if(timeRemaining2 <= 0 ){
+        secondClock.style.backgroundColor = '#FF6347';  
+    }
+
     countdownDisplay2.innerHTML = minutes2 + ":" + seconds2 + ":" + milliseconds2;
     // countdownDisplay2.innerHTML = minutes2 + ":" + seconds2;
 
@@ -270,24 +280,19 @@ window.addEventListener('keydown', function(e) {
       e.preventDefault();
       startButton.style.color = "red";
       if (e.keyCode == 32) {
-        if(running1 && !running2){
-            startCountdown2();
-        }
-        else if(running2 && !running1){
-            startCountdown1();
-            
-            
-        }
+          if(!running1){
+              startCountdown1();
+          }
+          else{
+              console.log("It is not true");
+          }
 
-        else if(!running1 && !running2){
-            startCountdown1();
-        }
-      
-        else{
-            console.log("Error 4");
-        }
 
       }
     }
 }
 );
+
+
+
+console.log(timeRemaining1);
