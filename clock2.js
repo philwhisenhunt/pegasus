@@ -5,7 +5,7 @@ const countdownTimer = {
     preciseTimerSetting: null,
     timeRemaining: null,
     countdownDisplay1: document.querySelector('#first'),
-     timeRemaining = preciseTimerSetting - difference1,
+    timeRemaining: preciseTimerSetting - difference1,
 
 
     pause: function() {
