@@ -70,45 +70,45 @@ const countdownTimer = {
     getDisplayTime: function(){
 
         //how to I pull out the start time from a different method in the same object?
-        updatedTime1 = new Date().getTime();
+        updatedTime = new Date().getTime();
         if (this.savedTime){
-            difference1 = (updatedTime1 - startTime1) + savedTime1;
-            timeRemaining = (this.preciseTimerSetting - difference1);
+            difference = (updatedTime - startTime) + savedTime;
+            timeRemaining = (this.preciseTimerSetting - difference);
     
         }
         else {
             
-            difference1 = updatedTime1 - startTime1;
-            timeRemaining = this.preciseTimerSetting - difference1;
+            difference = updatedTime - startTime;
+            timeRemaining = this.preciseTimerSetting - difference;
            
         }
-        minutes1 = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000*60));
-        seconds1 = Math.floor((timeRemaining % (1000 * 60)) / 1000);
-        milliseconds1 = Math.floor((timeRemaining % (1000* 60)) /100);
+        minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000*60));
+        seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+        milliseconds = Math.floor((timeRemaining % (1000* 60)) /100);
     
     
-        if(minutes1 <= 0){
-            minutes1 = 0;
+        if(minutes <= 0){
+            minutes = 0;
         }
     
-        if(seconds1 <= 0){
-            seconds1 = 0;
+        if(seconds <= 0){
+            seconds = 0;
         }
     
-        if(milliseconds1 <= 0){
-            milliseconds1 = 0;
+        if(milliseconds <= 0){
+            milliseconds = 0;
         }
         
-        minutes1 = (minutes1 < 10) ? "0" + minutes1 : minutes1;
-        seconds1 = (seconds1 < 10) ? "0" + seconds1 : seconds1;
-        milliseconds1 = (milliseconds1 < 10) ? "0" + milliseconds1 : milliseconds1;
+        minutes = (minutes < 10) ? "0" + minutes : minutes;
+        seconds = (seconds < 10) ? "0" + seconds : seconds;
+        milliseconds = (milliseconds < 10) ? "0" + milliseconds : milliseconds;
     
         if(timeRemaining <= 0 ){
             // this.firstClock.style.backgroundColor = '#FF6347';  
         }
     
-        this.countdownDisplay1.innerHTML = minutes1 + ":" + seconds1 + ":" + milliseconds1;
-        // countdownDisplay1.innerHTML = minutes1 + ":" + seconds1;
+        this.countdownDisplay.innerHTML = minutes + ":" + seconds + ":" + milliseconds;
+        // countdownDisplay.innerHTML = minutes + ":" + seconds;
     }
 
 
