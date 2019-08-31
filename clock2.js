@@ -74,6 +74,7 @@ const countdownTimer = {
         if (this.savedTime){
             difference = (updatedTime - startTime) + savedTime;
             timeRemaining = (this.preciseTimerSetting - difference);
+            return this.timeRemaining;//trying this
     
         }
         else {
