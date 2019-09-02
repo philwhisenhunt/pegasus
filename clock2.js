@@ -27,7 +27,7 @@ const countdownTimer = {
         }
     
         else {
-            startCountdown1();
+            this.start();
         }
 
     },
