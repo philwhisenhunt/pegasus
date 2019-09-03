@@ -10,10 +10,11 @@ const countdownTimer = {
 
     pause: function() {
         this.paused = true;
-        console.log("Working");
+        console.log("Pause was hit");
 
         if (!difference){
             //if the timer never started, then don't do a thing
+            console.log("no difference, didn't do a thing");
         }
     
         else if (!paused) {
@@ -55,16 +56,17 @@ const countdownTimer = {
     },
 
     start: function(){
-        console.log('working?');
-        startTime1 = new Date().getTime();
+        console.log('starting?');
+        startTime = new Date().getTime();
+        console.log(this.startTime);
 
         // run the function getDisplayTime1 every millisecond
-        timeInterval1 = setInterval(this.getDisplayTime(), 1);   
+        timeInterval = setInterval(this.getDisplayTime(), 1);   
 
         //Pause the second timer
         this.paused = false;
 
-        this.countdownDisplay1.style.color = "black";
+        this.countdownDisplay.style.color = "black";
         //how to get this to start the time? 
     },
 
