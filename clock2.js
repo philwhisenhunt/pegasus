@@ -44,15 +44,15 @@ const countdownTimer = {
     
     
     
-        minutes1 = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000*60));
-        seconds1 = Math.floor((timeRemaining % (1000 * 60)) / 1000);
-        milliseconds1 = Math.floor((timeRemaining % (1000* 60)) /100);
+        minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000*60));
+        seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+        milliseconds = Math.floor((timeRemaining % (1000* 60)) /100);
         
-        minutes1 = (minutes1 < 10) ? "0" + minutes1 : minutes1;
-        seconds1 = (seconds1 < 10) ? "0" + seconds1 : seconds1;
-        milliseconds1 = (milliseconds1 < 10) ? "0" + milliseconds1 : milliseconds1;
+        minutes = (minutes1 < 10) ? "0" + minutes : minutes;
+        seconds = (seconds1 < 10) ? "0" + seconds : seconds;
+        milliseconds = (milliseconds < 10) ? "0" + milliseconds : milliseconds;
         
-        countdownDisplay1.innerHTML = minutes1 + ":" + seconds1 + ":" + milliseconds1;
+        countdownDisplay.innerHTML = minutes + ":" + seconds + ":" + milliseconds;
     },
 
     start: function(){
