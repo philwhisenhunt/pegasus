@@ -4,7 +4,7 @@ const countdownTimer = {
     savedTime: null,
     preciseTimerSetting: null,
     timeRemaining: null,
-    countdownDisplay1: document.querySelector('#first'),
+    countdownDisplay: document.querySelector('#first'),
     timeRemaining: null,
 
 
