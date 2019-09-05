@@ -4,7 +4,7 @@ const countdownTimer = {
     savedTime: null,
     preciseTimerSetting: null,
     timeRemaining: null,
-    countdownDisplay: document.querySelector('#first'),
+    countdownDisplay: document.querySelector('#first'), //how do I get this to select one clock in one object, and another in another object?
     timeRemaining: null,
 
 
