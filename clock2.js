@@ -58,10 +58,12 @@ const countdownTimer = {
     start: function(){
         console.log('starting?');
         startTime = new Date().getTime();
+        console.log(startTime);
         console.log(this.startTime);
 
         // run the function getDisplayTime1 every millisecond
         timeInterval = setInterval(this.getDisplayTime(), 1);   
+        //console.log(timeInterval);
 
         //Pause the second timer
         this.paused = false;
