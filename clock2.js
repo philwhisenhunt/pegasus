@@ -59,10 +59,12 @@ const countdownTimer = {
         console.log('starting?');
         startTime = new Date().getTime();
         console.log(startTime);
-        console.log(this.startTime);
+        //console.log(this.startTime);
 
         // run the function getDisplayTime1 every millisecond
-        timeInterval = setInterval(this.getDisplayTime(), 1);   
+        // timeInterval = setInterval(this.getDisplayTime(), 1);   
+        setInterval(this.getDisplayTime(), 1);   
+
         //console.log(timeInterval);
 
         //Pause the second timer
@@ -112,7 +114,7 @@ const countdownTimer = {
         if(timeRemaining <= 0 ){
             // this.firstClock.style.backgroundColor = '#FF6347';  
         }
-    
+        console.log("minutes: " + minutes + "seconds: " + seconds);
         this.countdownDisplay.innerHTML = minutes + ":" + seconds + ":" + milliseconds;
         // countdownDisplay.innerHTML = minutes + ":" + seconds;
     }
