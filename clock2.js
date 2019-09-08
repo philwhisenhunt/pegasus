@@ -69,6 +69,7 @@ const countdownTimer = {
 
         //Pause the second timer
         this.paused = false;
+        console.log('Paused?: ' . this.paused)
 
         this.countdownDisplay.style.color = "black";
         //how to get this to start the time? 
