@@ -63,7 +63,7 @@ const countdownTimer = {
 
         // run the function getDisplayTime1 every millisecond
         // timeInterval = setInterval(this.getDisplayTime(), 1);   
-        setInterval(this.getDisplayTime(), 1);   
+        setInterval(console.log(this.getDisplayTime(), 1));   
 
         //console.log(timeInterval);
 
