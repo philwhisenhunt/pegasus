@@ -63,13 +63,12 @@ const countdownTimer = {
 
         // run the function getDisplayTime1 every millisecond
         // timeInterval = setInterval(this.getDisplayTime(), 1);   
-        setInterval(console.log(this.getDisplayTime(), 1));   
+        setInterval(console.log(this.getDisplayTime()), 1);   //this is just undefined
 
         //console.log(timeInterval);
 
         //Pause the second timer
         this.paused = false;
-        console.log('Paused?: ' . this.paused)
 
         this.countdownDisplay.style.color = "black";
         //how to get this to start the time? 
