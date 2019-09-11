@@ -63,7 +63,7 @@ const countdownTimer = {
 
         // run the function getDisplayTime1 every millisecond
         // timeInterval = setInterval(this.getDisplayTime(), 1);   
-        setInterval(console.log(this.getDisplayTime()), 1);   //this is just undefined
+        setInterval(this.getDisplayTime(), 1);   //this is just undefined
 
         //console.log(timeInterval);
 
@@ -114,7 +114,7 @@ const countdownTimer = {
         if(timeRemaining <= 0 ){
             // this.firstClock.style.backgroundColor = '#FF6347';  
         }
-        console.log("minutes: " + minutes + "seconds: " + seconds);
+        console.log("minutes: " + minutes + "seconds: " + seconds); //why isn't this outputting anything?
         this.countdownDisplay.innerHTML = minutes + ":" + seconds + ":" + milliseconds;
         // countdownDisplay.innerHTML = minutes + ":" + seconds;
     }
