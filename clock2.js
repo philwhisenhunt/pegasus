@@ -2,7 +2,7 @@ const countdownTimer = {
     startTime: null,
     paused: false,
     savedTime: null,
-    preciseTimerSetting: null,
+    preciseTimerSetting: 500000,
     timeRemaining: null,
     countdownDisplay: document.querySelector('#first'), //how do I get this to select one clock in one object, and another in another object?
     timeRemaining: null,
@@ -63,14 +63,14 @@ const countdownTimer = {
 
         // run the function getDisplayTime1 every millisecond
         // timeInterval = setInterval(this.getDisplayTime(), 1);   
-        setInterval(this.getDisplayTime(), 1);   //this is just undefined
+        setInterval(this.getDisplayTime, 1);   //now it is running each time..
 
         //console.log(timeInterval);
 
         //Pause the second timer
         this.paused = false;
 
-        this.countdownDisplay.style.color = "black";
+       // this.countdownDisplay.style.color = "black";
         //how to get this to start the time? 
     },
 
@@ -87,10 +87,9 @@ const countdownTimer = {
         else {
 
             difference = updatedTime - startTime;
-            console.log(updatedTime);
-
-            console.log(startTime);
+           
             timeRemaining = this.preciseTimerSetting - difference;
+            console.log(timeRemaining);
             
            
         }
@@ -118,8 +117,8 @@ const countdownTimer = {
         if(timeRemaining <= 0 ){
             // this.firstClock.style.backgroundColor = '#FF6347';  
         }
-        console.log("minutes: " + minutes + "seconds: " + seconds); //why isn't this outputting anything?
-        this.countdownDisplay.innerHTML = minutes + ":" + seconds + ":" + milliseconds;
+        // console.log("minutes: " + minutes + "seconds: " + seconds); //why isn't this outputting anything?
+        //this.countdownDisplay.innerHTML = minutes + ":" + seconds + ":" + milliseconds;
         // countdownDisplay.innerHTML = minutes + ":" + seconds;
     }
 
