@@ -85,9 +85,13 @@ const countdownTimer = {
     
         }
         else {
-            
+
             difference = updatedTime - startTime;
+            console.log(updatedTime);
+
+            console.log(startTime);
             timeRemaining = this.preciseTimerSetting - difference;
+            
            
         }
         minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000*60));
