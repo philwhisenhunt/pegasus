@@ -88,11 +88,12 @@ const countdownTimer = {
 
             difference = updatedTime - startTime;
            
-            timeRemaining = this.preciseTimerSetting - difference;
-            console.log(timeRemaining);
+            //timeRemaining = this.preciseTimerSetting - difference;
+            console.log(difference);
             
            
         }
+        /*
         minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000*60));
         seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
         milliseconds = Math.floor((timeRemaining % (1000* 60)) /100);
@@ -117,6 +118,7 @@ const countdownTimer = {
         if(timeRemaining <= 0 ){
             // this.firstClock.style.backgroundColor = '#FF6347';  
         }
+        */
         // console.log("minutes: " + minutes + "seconds: " + seconds); //why isn't this outputting anything?
         //this.countdownDisplay.innerHTML = minutes + ":" + seconds + ":" + milliseconds;
         // countdownDisplay.innerHTML = minutes + ":" + seconds;
