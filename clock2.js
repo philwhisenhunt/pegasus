@@ -2,18 +2,19 @@ const countdownTimer = {
     startTime: null,
     paused: false,
     savedTime: null,
-    preciseTimerSetting: null,
+    preciseTimerSetting: 500000,
     timeRemaining: null,
-    countdownDisplay1: document.querySelector('#first'),
-    timeRemaining: preciseTimerSetting - difference1,
+    countdownDisplay: document.querySelector('#first'), //how do I get this to select one clock in one object, and another in another object?
+    timeRemaining: null,
 
 
     pause: function() {
         this.paused = true;
-        console.log("Working");
+        console.log("Pause was hit");
 
         if (!difference){
             //if the timer never started, then don't do a thing
+            console.log("no difference, didn't do a thing");
         }
     
         else if (!paused) {
@@ -21,12 +22,13 @@ const countdownTimer = {
             savedTime = difference;
             paused = 1;
             running = 0;
+            timeRemaining = preciseTimerSetting - difference;
             return savedTime;
     
         }
     
         else {
-            startCountdown1();
+            this.start();
         }
 
     },
@@ -34,81 +36,92 @@ const countdownTimer = {
     reset: function(){
         clearInterval(timeInterval1);
         this.savedTime = 0;
-        difference1 = 0;
-        paused1 = 0;
-        running1 = 0;
-        this.preciseTimerSetting = userSetMinutesPlayer1 * 60 * 1000;
-        timeRemaining = this.preciseTimerSetting - difference1;
+        difference = 0;
+        paused = 0;
+        running = 0;
+        this.preciseTimerSetting = userSetMinutesPlayer * 60 * 1000;
+        timeRemaining = this.preciseTimerSetting - difference;
     
     
     
-        minutes1 = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000*60));
-        seconds1 = Math.floor((timeRemaining % (1000 * 60)) / 1000);
-        milliseconds1 = Math.floor((timeRemaining % (1000* 60)) /100);
+        minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000*60));
+        seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+        milliseconds = Math.floor((timeRemaining % (1000* 60)) /100);
         
-        minutes1 = (minutes1 < 10) ? "0" + minutes1 : minutes1;
-        seconds1 = (seconds1 < 10) ? "0" + seconds1 : seconds1;
-        milliseconds1 = (milliseconds1 < 10) ? "0" + milliseconds1 : milliseconds1;
+        minutes = (minutes1 < 10) ? "0" + minutes : minutes;
+        seconds = (seconds1 < 10) ? "0" + seconds : seconds;
+        milliseconds = (milliseconds < 10) ? "0" + milliseconds : milliseconds;
         
-        countdownDisplay1.innerHTML = minutes1 + ":" + seconds1 + ":" + milliseconds1;
+        countdownDisplay.innerHTML = minutes + ":" + seconds + ":" + milliseconds;
     },
 
     start: function(){
-        console.log('working?');
-        startTime1 = new Date().getTime();
+        console.log('starting?');
+        startTime = new Date().getTime();
+        console.log(startTime);
+        //console.log(this.startTime);
 
         // run the function getDisplayTime1 every millisecond
-        timeInterval1 = setInterval(this.getDisplayTime(), 1);   
+        // timeInterval = setInterval(this.getDisplayTime(), 1);   
+        setInterval(this.getDisplayTime, 1);   //now it is running each time..
+
+        //console.log(timeInterval);
 
         //Pause the second timer
         this.paused = false;
 
-        this.countdownDisplay1.style.color = "black";
+       // this.countdownDisplay.style.color = "black";
         //how to get this to start the time? 
     },
 
     getDisplayTime: function(){
 
         //how to I pull out the start time from a different method in the same object?
-        updatedTime1 = new Date().getTime();
+        updatedTime = new Date().getTime();
         if (this.savedTime){
-            difference1 = (updatedTime1 - startTime1) + savedTime1;
-            timeRemaining = (this.preciseTimerSetting - difference1);
+            difference = (updatedTime - startTime) + savedTime;
+            timeRemaining = (this.preciseTimerSetting - difference);
+            return this.timeRemaining;//trying this
     
         }
         else {
+
+            difference = updatedTime - startTime;
+           
+            //timeRemaining = this.preciseTimerSetting - difference;
+            console.log(difference);
             
-            difference1 = updatedTime1 - startTime1;
-            timeRemaining = this.preciseTimerSetting - difference1;
            
         }
-        minutes1 = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000*60));
-        seconds1 = Math.floor((timeRemaining % (1000 * 60)) / 1000);
-        milliseconds1 = Math.floor((timeRemaining % (1000* 60)) /100);
+        /*
+        minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000*60));
+        seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+        milliseconds = Math.floor((timeRemaining % (1000* 60)) /100);
     
     
-        if(minutes1 <= 0){
-            minutes1 = 0;
+        if(minutes <= 0){
+            minutes = 0;
         }
     
-        if(seconds1 <= 0){
-            seconds1 = 0;
+        if(seconds <= 0){
+            seconds = 0;
         }
     
-        if(milliseconds1 <= 0){
-            milliseconds1 = 0;
+        if(milliseconds <= 0){
+            milliseconds = 0;
         }
         
-        minutes1 = (minutes1 < 10) ? "0" + minutes1 : minutes1;
-        seconds1 = (seconds1 < 10) ? "0" + seconds1 : seconds1;
-        milliseconds1 = (milliseconds1 < 10) ? "0" + milliseconds1 : milliseconds1;
+        minutes = (minutes < 10) ? "0" + minutes : minutes;
+        seconds = (seconds < 10) ? "0" + seconds : seconds;
+        milliseconds = (milliseconds < 10) ? "0" + milliseconds : milliseconds;
     
         if(timeRemaining <= 0 ){
             // this.firstClock.style.backgroundColor = '#FF6347';  
         }
-    
-        this.countdownDisplay1.innerHTML = minutes1 + ":" + seconds1 + ":" + milliseconds1;
-        // countdownDisplay1.innerHTML = minutes1 + ":" + seconds1;
+        */
+        // console.log("minutes: " + minutes + "seconds: " + seconds); //why isn't this outputting anything?
+        //this.countdownDisplay.innerHTML = minutes + ":" + seconds + ":" + milliseconds;
+        // countdownDisplay.innerHTML = minutes + ":" + seconds;
     }
 
 
