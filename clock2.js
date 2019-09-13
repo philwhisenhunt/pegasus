@@ -6,6 +6,8 @@ const countdownTimer = {
     timeRemaining: null,
     countdownDisplay: document.querySelector('#first'), //how do I get this to select one clock in one object, and another in another object?
     timeRemaining: null,
+    paused: 1,
+    running: 0,
 
 
     pause: function() {
