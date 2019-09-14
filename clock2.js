@@ -129,5 +129,5 @@ const countdownTimer = {
 
 };
 
-const countdownTimer1 = Object.assign({}, countdownTimer);
-const countdownTimer2 = Object.assign({}, countdownTimer);
+const countdownTimer1 = Object.assign({}, countdownTimer, { countdownDisplay: document.querySelector('#first')});
+const countdownTimer2 = Object.assign({}, countdownTimer, { countdownDisplay: document.querySelector('#second')});
