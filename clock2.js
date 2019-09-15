@@ -72,6 +72,8 @@ const countdownTimer = {
         //Pause the second timer
         this.paused = false;
 
+       
+
        // this.countdownDisplay.style.color = "black";
         //how to get this to start the time? 
     },
@@ -90,15 +92,17 @@ const countdownTimer = {
 
             difference = updatedTime - startTime;
            
-            //timeRemaining = this.preciseTimerSetting - difference;
+            timeRemaining = this.preciseTimerSetting - difference;
             console.log(difference);
             
+            minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000*60));
+            seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+            milliseconds = Math.floor((timeRemaining % (1000* 60)) /100);
            
         }
+       
         /*
-        minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000*60));
-        seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
-        milliseconds = Math.floor((timeRemaining % (1000* 60)) /100);
+        
     
     
         if(minutes <= 0){
