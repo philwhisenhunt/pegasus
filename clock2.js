@@ -93,7 +93,8 @@ const countdownTimer = {
             difference = updatedTime - startTime;
            
             timeRemaining = this.preciseTimerSetting - difference;
-            console.log(difference);
+            console.log(this.preciseTimerSetting);
+           // console.log(this.timeRemaining);
             
             minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000*60));
             seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
