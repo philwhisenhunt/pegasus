@@ -6,6 +6,8 @@ const countdownTimer = {
     timeRemaining: null,
     countdownDisplay: document.querySelector('#first'), //how do I get this to select one clock in one object, and another in another object?
     timeRemaining: null,
+    paused: 1,
+    running: 0,
 
 
     pause: function() {
@@ -70,12 +72,15 @@ const countdownTimer = {
         //Pause the second timer
         this.paused = false;
 
+       
+
        // this.countdownDisplay.style.color = "black";
         //how to get this to start the time? 
     },
 
     getDisplayTime: function(){
-
+        var transfer = this.preciseTimerSetting;
+        console.log(transfer);
         //how to I pull out the start time from a different method in the same object?
         updatedTime = new Date().getTime();
         if (this.savedTime){
@@ -88,15 +93,18 @@ const countdownTimer = {
 
             difference = updatedTime - startTime;
            
-            //timeRemaining = this.preciseTimerSetting - difference;
-            console.log(difference);
+            timeRemaining = this.preciseTimerSetting - difference;
+            console.log("The precise time is " + this.preciseTimerSetting);
+           // console.log(this.timeRemaining);
             
+            minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000*60));
+            seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+            milliseconds = Math.floor((timeRemaining % (1000* 60)) /100);
            
         }
+       
         /*
-        minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000*60));
-        seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
-        milliseconds = Math.floor((timeRemaining % (1000* 60)) /100);
+        
     
     
         if(minutes <= 0){
@@ -127,5 +135,5 @@ const countdownTimer = {
 
 };
 
-const countdownTimer1 = Object.assign({}, countdownTimer);
-const countdownTimer2 = Object.assign({}, countdownTimer);
+const countdownTimer1 = Object.assign({}, countdownTimer, { countdownDisplay: document.querySelector('#first')});
+const countdownTimer2 = Object.assign({}, countdownTimer, { countdownDisplay: document.querySelector('#second')});
