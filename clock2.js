@@ -79,7 +79,8 @@ const countdownTimer = {
     },
 
     getDisplayTime: function(){
-
+        var transfer = this.preciseTimerSetting;
+        console.log(transfer);
         //how to I pull out the start time from a different method in the same object?
         updatedTime = new Date().getTime();
         if (this.savedTime){
