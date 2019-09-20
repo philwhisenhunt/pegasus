@@ -2,7 +2,7 @@ const countdownTimer = {
     startTime: null,
     paused: false,
     savedTime: null,
-    preciseTimerSetting: 500000,
+    preciseTimerSetting: 5000000000,
     timeRemaining: null,
     countdownDisplay: document.querySelector('#first'), //how do I get this to select one clock in one object, and another in another object?
     timeRemaining: null,
@@ -65,8 +65,9 @@ const countdownTimer = {
 
         // run the function getDisplayTime1 every millisecond
         // timeInterval = setInterval(this.getDisplayTime(), 1);   
-        setInterval(this.getDisplayTime, 1);   //now it is running each time..
-
+        //setInterval(this.getDisplayTime, 1);   //now it is running each time..
+        setInterval(() => this.getDisplayTime, 1);
+        console.log('made it here');
         //console.log(timeInterval);
 
         //Pause the second timer
@@ -79,10 +80,11 @@ const countdownTimer = {
     },
 
     getDisplayTime: function(){
-        var transfer = this.preciseTimerSetting;
-        console.log(transfer);
+        //var transfer = this.preciseTimerSetting;
+        console.log('here'); // now not making it here
         //how to I pull out the start time from a different method in the same object?
         updatedTime = new Date().getTime();
+        console.log(updatedTime);
         if (this.savedTime){
             difference = (updatedTime - startTime) + savedTime;
             timeRemaining = (this.preciseTimerSetting - difference);
