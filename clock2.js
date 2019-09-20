@@ -84,6 +84,7 @@ const countdownTimer = {
         console.log('here'); // now not making it here
         //how to I pull out the start time from a different method in the same object?
         updatedTime = new Date().getTime();
+        console.log(updatedTime);
         if (this.savedTime){
             difference = (updatedTime - startTime) + savedTime;
             timeRemaining = (this.preciseTimerSetting - difference);
