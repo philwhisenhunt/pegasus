@@ -60,8 +60,7 @@ const countdownTimer = {
     start: function(){
         console.log('starting?');
         startTime = new Date().getTime();
-        console.log(startTime);
-        
+                
         setInterval(() => this.getDisplayTime(), 1);
  
 
@@ -103,7 +102,8 @@ const countdownTimer = {
 
            
         }
-       
+        this.countdownDisplay.innerHTML = minutes + ":" + seconds + ":" + milliseconds;
+
         /*
         
     
