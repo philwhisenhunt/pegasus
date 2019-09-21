@@ -61,14 +61,9 @@ const countdownTimer = {
         console.log('starting?');
         startTime = new Date().getTime();
         console.log(startTime);
-        //console.log(this.startTime);
-
-        // run the function getDisplayTime1 every millisecond
-        // timeInterval = setInterval(this.getDisplayTime(), 1);   
-        //setInterval(this.getDisplayTime, 1);   //now it is running each time..
-        setInterval(() => this.getDisplayTime, 1);
-        console.log('made it here');
-        //console.log(timeInterval);
+        
+        setInterval(() => this.getDisplayTime(), 1);
+ 
 
         //Pause the second timer
         this.paused = false;
@@ -102,6 +97,10 @@ const countdownTimer = {
             minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000*60));
             seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
             milliseconds = Math.floor((timeRemaining % (1000* 60)) /100);
+
+            minutes = (minutes1 < 10) ? "0" + minutes : minutes;
+            seconds = (seconds1 < 10) ? "0" + seconds : seconds;
+            milliseconds = (milliseconds < 10) ? "0" + milliseconds : milliseconds;
            
         }
        
