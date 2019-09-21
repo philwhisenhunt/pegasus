@@ -2,9 +2,9 @@ const countdownTimer = {
     startTime: null,
     paused: false,
     savedTime: null,
-    preciseTimerSetting: 5000000000,
+    preciseTimerSetting: 300000,
     timeRemaining: null,
-    countdownDisplay: document.querySelector('#first'), //how do I get this to select one clock in one object, and another in another object?
+    //countdownDisplay: document.querySelector('#first'), //how do I get this to select one clock in one object, and another in another object?
     timeRemaining: null,
     paused: 1,
     running: 0,
@@ -54,7 +54,7 @@ const countdownTimer = {
         seconds = (seconds1 < 10) ? "0" + seconds : seconds;
         milliseconds = (milliseconds < 10) ? "0" + milliseconds : milliseconds;
         
-        countdownDisplay.innerHTML = minutes + ":" + seconds + ":" + milliseconds;
+        this.countdownDisplay.innerHTML = minutes + ":" + seconds + ":" + milliseconds;
     },
 
     start: function(){
@@ -76,10 +76,8 @@ const countdownTimer = {
 
     getDisplayTime: function(){
         //var transfer = this.preciseTimerSetting;
-        console.log('here'); // now not making it here
         //how to I pull out the start time from a different method in the same object?
         updatedTime = new Date().getTime();
-        console.log(updatedTime);
         if (this.savedTime){
             difference = (updatedTime - startTime) + savedTime;
             timeRemaining = (this.preciseTimerSetting - difference);
@@ -91,16 +89,18 @@ const countdownTimer = {
             difference = updatedTime - startTime;
            
             timeRemaining = this.preciseTimerSetting - difference;
-            console.log("The precise time is " + this.preciseTimerSetting);
-           // console.log(this.timeRemaining);
+           
             
             minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000*60));
             seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
             milliseconds = Math.floor((timeRemaining % (1000* 60)) /100);
 
-            minutes = (minutes1 < 10) ? "0" + minutes : minutes;
-            seconds = (seconds1 < 10) ? "0" + seconds : seconds;
+            minutes = (minutes < 10) ? "0" + minutes : minutes;
+            seconds = (seconds < 10) ? "0" + seconds : seconds;
             milliseconds = (milliseconds < 10) ? "0" + milliseconds : milliseconds;
+            console.log("This time " + minutes + ":" + seconds + ":" + milliseconds);
+            //countdownDisplay.innerHTML = minutes + ":" + seconds + ":" + milliseconds;
+
            
         }
        
