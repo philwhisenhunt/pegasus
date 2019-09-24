@@ -60,7 +60,7 @@ const countdownTimer = {
     start: function(){
         console.log('starting?');
         startTime = new Date().getTime();
-                
+
         setInterval(() => this.getDisplayTime(), 1);
  
 
@@ -138,3 +138,15 @@ const countdownTimer = {
 
 const countdownTimer1 = Object.assign({}, countdownTimer, { countdownDisplay: document.querySelector('#first')});
 const countdownTimer2 = Object.assign({}, countdownTimer, { countdownDisplay: document.querySelector('#second')});
+
+// timeRemaining = this.preciseTimerSetting - difference;
+           
+            
+// minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000*60));
+// seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+// milliseconds = Math.floor((timeRemaining % (1000* 60)) /100);
+
+// minutes = (minutes < 10) ? "0" + minutes : minutes;
+// seconds = (seconds < 10) ? "0" + seconds : seconds;
+// milliseconds = (milliseconds < 10) ? "0" + milliseconds : milliseconds;
+// countdownDisplay.innerHTML = minutes + ":" + seconds + ":" + milliseconds;
