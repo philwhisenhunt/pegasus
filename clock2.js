@@ -139,6 +139,14 @@ const countdownTimer = {
 const countdownTimer1 = Object.assign({}, countdownTimer, { countdownDisplay: document.querySelector('#first')});
 const countdownTimer2 = Object.assign({}, countdownTimer, { countdownDisplay: document.querySelector('#second')});
 
+//perhaps contain the above in an if else statement
+/*
+If countdownTimer1.running === true
+then run countdownTimer2
+else
+run countdownTimer1
+*/
+
 // timeRemaining = this.preciseTimerSetting - difference;
            
             
