@@ -9,6 +9,13 @@ const countdownTimer = {
     paused: 1,
     running: 0,
 
+    initialize: function(){
+        //once the page loads, set the timer to a certain time
+        this.running = 1;
+        //set running to yes
+        //then, once a button is hit, start the other timer
+    },
+
 
     pause: function() {
         this.paused = true;
