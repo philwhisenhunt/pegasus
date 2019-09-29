@@ -16,6 +16,12 @@ const countdownTimer = {
         //then, once a button is hit, start the other timer
     },
 
+    flipper: function() { 
+        //if running, then depending on the button, start the other clock
+        //if button pressed equals second, start timer one
+        //if button pressed equals first, start timer two
+    },
+
 
     pause: function() {
         this.paused = true;
