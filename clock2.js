@@ -2,12 +2,25 @@ const countdownTimer = {
     startTime: null,
     paused: false,
     savedTime: null,
-    preciseTimerSetting: 5000000000,
+    preciseTimerSetting: 300000,
     timeRemaining: null,
-    countdownDisplay: document.querySelector('#first'), //how do I get this to select one clock in one object, and another in another object?
+    //countdownDisplay: document.querySelector('#first'), //how do I get this to select one clock in one object, and another in another object?
     timeRemaining: null,
     paused: 1,
     running: 0,
+
+    initialize: function(){
+        //once the page loads, set the timer to a certain time
+        this.running = 1;
+        //set running to yes
+        //then, once a button is hit, start the other timer
+    },
+
+    flipper: function() { 
+        //if running, then depending on the button, start the other clock
+        //if button pressed equals second, start timer one
+        //if button pressed equals first, start timer two
+    },
 
 
     pause: function() {
@@ -54,21 +67,18 @@ const countdownTimer = {
         seconds = (seconds1 < 10) ? "0" + seconds : seconds;
         milliseconds = (milliseconds < 10) ? "0" + milliseconds : milliseconds;
         
-        countdownDisplay.innerHTML = minutes + ":" + seconds + ":" + milliseconds;
+        this.countdownDisplay.innerHTML = minutes + ":" + seconds + ":" + milliseconds;
     },
 
     start: function(){
+        //if there is time remaining and the other clock is running
+        //pause the other time
+        //start this timer
         console.log('starting?');
         startTime = new Date().getTime();
-        console.log(startTime);
-        //console.log(this.startTime);
 
-        // run the function getDisplayTime1 every millisecond
-        // timeInterval = setInterval(this.getDisplayTime(), 1);   
-        //setInterval(this.getDisplayTime, 1);   //now it is running each time..
-        setInterval(() => this.getDisplayTime, 1);
-        console.log('made it here');
-        //console.log(timeInterval);
+        setInterval(() => this.getDisplayTime(), 1);
+ 
 
         //Pause the second timer
         this.paused = false;
@@ -81,10 +91,8 @@ const countdownTimer = {
 
     getDisplayTime: function(){
         //var transfer = this.preciseTimerSetting;
-        console.log('here'); // now not making it here
         //how to I pull out the start time from a different method in the same object?
         updatedTime = new Date().getTime();
-        console.log(updatedTime);
         if (this.savedTime){
             difference = (updatedTime - startTime) + savedTime;
             timeRemaining = (this.preciseTimerSetting - difference);
@@ -96,15 +104,22 @@ const countdownTimer = {
             difference = updatedTime - startTime;
            
             timeRemaining = this.preciseTimerSetting - difference;
-            console.log("The precise time is " + this.preciseTimerSetting);
-           // console.log(this.timeRemaining);
+           
             
             minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000*60));
             seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
             milliseconds = Math.floor((timeRemaining % (1000* 60)) /100);
+
+            minutes = (minutes < 10) ? "0" + minutes : minutes;
+            seconds = (seconds < 10) ? "0" + seconds : seconds;
+            milliseconds = (milliseconds < 10) ? "0" + milliseconds : milliseconds;
+            console.log("This time " + minutes + ":" + seconds + ":" + milliseconds);
+            //countdownDisplay.innerHTML = minutes + ":" + seconds + ":" + milliseconds;
+
            
         }
-       
+        this.countdownDisplay.innerHTML = minutes + ":" + seconds + ":" + milliseconds;
+
         /*
         
     
@@ -139,3 +154,23 @@ const countdownTimer = {
 
 const countdownTimer1 = Object.assign({}, countdownTimer, { countdownDisplay: document.querySelector('#first')});
 const countdownTimer2 = Object.assign({}, countdownTimer, { countdownDisplay: document.querySelector('#second')});
+
+//perhaps contain the above in an if else statement
+/*
+If countdownTimer1.running === true
+then run countdownTimer2
+else
+run countdownTimer1
+*/
+
+// timeRemaining = this.preciseTimerSetting - difference;
+           
+            
+// minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000*60));
+// seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+// milliseconds = Math.floor((timeRemaining % (1000* 60)) /100);
+
+// minutes = (minutes < 10) ? "0" + minutes : minutes;
+// seconds = (seconds < 10) ? "0" + seconds : seconds;
+// milliseconds = (milliseconds < 10) ? "0" + milliseconds : milliseconds;
+// countdownDisplay.innerHTML = minutes + ":" + seconds + ":" + milliseconds;
