@@ -11,11 +11,54 @@
 <body>
     <div class="all">
         <div class="blocks">
-            <h1>Pegasus</h1>                
+            <h1>Pegasus</h1>     
             
+                <div class="both-clocks">
+                    <div class="actual-buttons-2" onclick="resetCountdown2.reset()">Reset</div>
+
+
+                    <div class="timer">
+                            <div id="first-timer">
+                                    <div class="actual-buttons" onclick="countdownTimer1.start()">Timer One Control</div>
+                                </div>
+                    </div>
+
+                        
+
+
+                    <div class="timer">
+                        <div id="second-timer">
+                                <div class="actual-buttons" onclick="countdownTimer2.start()">Timer Two Control</div>
+                        </div>
+                    </div>
+            
+            </div>
+        </div>
+    </div>
+    <script src="clock2.js"></script>
+</body>
+</html>
+
+<!-- Pull things from below as needed. 
+
+        <div class="actual-buttons-2" onclick="countdownTimer2.pause()">Pause</div>
+        <div class="actual-buttons-2" onclick="resetCountdown2.reset()">Reset</div>
+        
+
+        </div>
+
+      
+
         </div>
         <div class="both-timers">
             <div id="first-timer">
+                    <div class="first-buttons">
+                            <div class="button-panels">
+            
+                                   
+                  
+                               
+                            </div> 
                 <div class="time-display">
                     
 
@@ -23,45 +66,29 @@
                       
                     </div>
                 </div>
-                <div class="first-buttons">
-                        <div class="button-panels">
-
-                                <div class="actual-buttons" onclick="countdownTimer1.start()">Start</div>
-                                <div class="actual-buttons" onclick="countdownTimer1.pause()">Pause</div>
-                                <div class="actual-buttons" onclick="resetCountdown1.reset()">Reset</div>
-                <!-- 
-                                <div class="actual-buttons-2" id="startButton" onclick="startCountdown2()">Start</div>
-                                <div class="actual-buttons-2" onclick="pauseCountdown2()">Pause</div>
-                                <div class="actual-buttons-2" onclick="resetCountdown2()">Reset</div> -->
-                           
-                        </div> 
-
-                </div>
+               
 
                 
 
             </div>
-            <div id="second-timer">
+                    <div class="first-buttons">
+                            <div class="button-panels">
+            
+                                    <div class="actual-buttons" onclick="countdownTimer1.start()">Timer Two Control</div>
+                                    
+                   
+                               
+                            </div> 
 
                     <div id="first">
                       
                         </div>
-                    <div class="first-buttons">
-                            <div class="button-panels">
-    
-                                    <div class="actual-buttons-2" onclick="countdownTimer2.start()">Start</div>
-                                    <div class="actual-buttons-2" onclick="countdownTimer2.pause()">Pause</div>
-                                    <div class="actual-buttons-2" onclick="resetCountdown2.reset()">Reset</div>
-                  
-                               
-                            </div> 
-    
-                    </div>
+                    
                 <div class="time-display">
                         <div id="second">
                             <span id="black-hours"></span>
                             <span id="black-minutes"></span>
-                            <span>:</span>
+                            
                             <span id="black-seconds"></span>
                             
 
@@ -76,7 +103,4 @@
         <div id="game"></div>
         
 
-    </div>
-    <script src="clock2.js"></script>
-</body>
-</html>
+-->

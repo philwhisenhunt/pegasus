@@ -9,6 +9,19 @@ const countdownTimer = {
     paused: 1,
     running: 0,
 
+    initialize: function(){
+        //once the page loads, set the timer to a certain time
+        this.running = 1;
+        //set running to yes
+        //then, once a button is hit, start the other timer
+    },
+
+    flipper: function() { 
+        //if running, then depending on the button, start the other clock
+        //if button pressed equals second, start timer one
+        //if button pressed equals first, start timer two
+    },
+
 
     pause: function() {
         this.paused = true;
@@ -58,9 +71,12 @@ const countdownTimer = {
     },
 
     start: function(){
+        //if there is time remaining and the other clock is running
+        //pause the other time
+        //start this timer
         console.log('starting?');
         startTime = new Date().getTime();
-                
+
         setInterval(() => this.getDisplayTime(), 1);
  
 
@@ -138,3 +154,23 @@ const countdownTimer = {
 
 const countdownTimer1 = Object.assign({}, countdownTimer, { countdownDisplay: document.querySelector('#first')});
 const countdownTimer2 = Object.assign({}, countdownTimer, { countdownDisplay: document.querySelector('#second')});
+
+//perhaps contain the above in an if else statement
+/*
+If countdownTimer1.running === true
+then run countdownTimer2
+else
+run countdownTimer1
+*/
+
+// timeRemaining = this.preciseTimerSetting - difference;
+           
+            
+// minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000*60));
+// seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+// milliseconds = Math.floor((timeRemaining % (1000* 60)) /100);
+
+// minutes = (minutes < 10) ? "0" + minutes : minutes;
+// seconds = (seconds < 10) ? "0" + seconds : seconds;
+// milliseconds = (milliseconds < 10) ? "0" + milliseconds : milliseconds;
+// countdownDisplay.innerHTML = minutes + ":" + seconds + ":" + milliseconds;
