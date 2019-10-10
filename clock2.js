@@ -75,8 +75,14 @@ const countdownTimer = {
         //pause the other time
         //start this timer
 
-        if(countdownTimer1.paused !== true){
+        if(countdownTimer1.paused == true){
+            countdownTimer2.paused = true;
             countdownTimer1.start(); //not sure about this
+        }
+
+        else{
+            countdownTimer1.paused = true;
+            countdownTimer2.start(); // still not sure about this
         }
         console.log('starting?');
         startTime = new Date().getTime();
