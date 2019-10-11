@@ -70,20 +70,25 @@ const countdownTimer = {
         this.countdownDisplay.innerHTML = minutes + ":" + seconds + ":" + milliseconds;
     },
 
+    flip: function (){
+        console.log('something happened');
+        if(countdownTimer1.paused == true){
+            countdownTimer2.paused = true;
+            countdownTimer1.start(); 
+        }
+
+        else{
+            countdownTimer1.paused = true;
+            countdownTimer2.start(); 
+        }
+    },
+
     start: function(){
         //if there is time remaining and the other clock is running
         //pause the other time
         //start this timer
 
-        if(countdownTimer1.paused == true){
-            countdownTimer2.paused = true;
-            countdownTimer1.start(); //not sure about this
-        }
-
-        else{
-            countdownTimer1.paused = true;
-            countdownTimer2.start(); // still not sure about this
-        }
+       
         console.log('starting?');
         startTime = new Date().getTime();
 
