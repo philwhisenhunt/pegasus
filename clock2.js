@@ -77,9 +77,16 @@ const countdownTimer = {
             countdownTimer1.start(); 
         }
 
-        else{
+
+
+        else if(countdownTimer1.paused == true){
             countdownTimer1.paused = true;
             countdownTimer2.start(); 
+        }
+
+        else{
+            countdownTimer1.start(); 
+
         }
     },
 
