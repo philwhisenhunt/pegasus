@@ -70,10 +70,32 @@ const countdownTimer = {
         this.countdownDisplay.innerHTML = minutes + ":" + seconds + ":" + milliseconds;
     },
 
+    // flip: function (){
+    //     console.log('something happened');
+    //     if(countdownTimer1.paused == true){
+    //         countdownTimer2.paused = true;
+    //         countdownTimer1.start(); 
+    //     }
+
+
+
+    //     else if(countdownTimer1.paused == true){
+    //         countdownTimer1.paused = true;
+    //         countdownTimer2.start(); 
+    //     }
+
+    //     else{
+    //         countdownTimer1.start(); 
+
+    //     }
+    // },
+
     start: function(){
         //if there is time remaining and the other clock is running
         //pause the other time
         //start this timer
+
+       
         console.log('starting?');
         startTime = new Date().getTime();
 
@@ -152,8 +174,8 @@ const countdownTimer = {
 
 };
 
-const countdownTimer1 = Object.assign({}, countdownTimer, { countdownDisplay: document.querySelector('#first')});
-const countdownTimer2 = Object.assign({}, countdownTimer, { countdownDisplay: document.querySelector('#second')});
+const countdownTimer2 = Object.assign({}, countdownTimer, { countdownDisplay: document.querySelector('#first')});
+const countdownTimer1 = Object.assign({}, countdownTimer, { countdownDisplay: document.querySelector('#second')});
 
 //perhaps contain the above in an if else statement
 /*
