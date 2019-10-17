@@ -26,25 +26,26 @@ const countdownTimer = {
     pause: function() {
         this.paused = true;
         console.log("Pause was hit");
-
+/*
         if (!difference){
             //if the timer never started, then don't do a thing
             console.log("no difference, didn't do a thing");
         }
     
         else if (!paused) {
-            clearInterval(timeInterval);
-            savedTime = difference;
-            paused = 1;
-            running = 0;
-            timeRemaining = preciseTimerSetting - difference;
-            return savedTime;
+            // clearInterval(timeInterval);
+            // savedTime = difference;
+            // paused = 1;
+            // running = 0;
+            // timeRemaining = preciseTimerSetting - difference;
+            // return savedTime;
     
         }
     
         else {
             this.start();
         }
+        */
 
     },
 
@@ -96,7 +97,7 @@ const countdownTimer = {
         //start this timer
 
        
-        console.log('starting?');
+        //console.log('starting?');
         startTime = new Date().getTime();
 
         setInterval(() => this.getDisplayTime(), 1);
@@ -135,7 +136,7 @@ const countdownTimer = {
             minutes = (minutes < 10) ? "0" + minutes : minutes;
             seconds = (seconds < 10) ? "0" + seconds : seconds;
             milliseconds = (milliseconds < 10) ? "0" + milliseconds : milliseconds;
-            console.log("This time " + minutes + ":" + seconds + ":" + milliseconds);
+            //console.log("This time " + minutes + ":" + seconds + ":" + milliseconds);
             //countdownDisplay.innerHTML = minutes + ":" + seconds + ":" + milliseconds;
 
            
