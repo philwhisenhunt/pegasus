@@ -3,6 +3,7 @@
     background-color: cream;
 }
 #first{
+    /*This is affecting the actual time display*/
     /* width: 50%; */
    
     /* float: left; */
@@ -32,7 +33,7 @@
 }
 .time-display{
     /* width: 40%; */
-    font-size: 8em;
+    font-size: 5em;
     text-align: center;
     color: white;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;

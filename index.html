@@ -19,15 +19,16 @@
 
                     <div class="timer">
                             <div id="first-timer">
-                                    <div class="actual-buttons" onclick="countdownTimer1.start()">Timer One Control</div>
+                                    <div class="actual-buttons" onclick="countdownTimer1.start(), countdownTimer2.pause()">Timer One Control</div>
 
                                     <div class="time-display">
                     
 
-                                            <div id="first">
-                                              
-                                            </div>
+                                        <div id="first">
+                                            
                                         </div>
+
+                                    </div>
                                 </div>
                     </div>
 
@@ -36,8 +37,8 @@
 
                     <div class="timer">
                         <div id="second-timer">
-                                <div class="actual-buttons" onclick="countdownTimer2.start()">Timer Two Control</div>
-                        </div>
+                                <div class="actual-buttons" onclick="countdownTimer2.start(), countdownTimer1.pause()">Timer Two Control</div>
+                        
 
                         <div class="time-display">
                     
@@ -45,7 +46,8 @@
                                 <div id="second">
                                   
                                 </div>
-                            </div>
+                        </div>
+                    </div>
                     </div>
             
             </div>
