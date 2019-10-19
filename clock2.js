@@ -26,7 +26,7 @@ const countdownTimer = {
     pause: function() {
         this.paused = true;
         console.log("Pause was hit");
-        this.getDisplayTime();
+        console.log(this.getDisplayTime()); //still undefined
 /*
         if (!difference){
             //if the timer never started, then don't do a thing
