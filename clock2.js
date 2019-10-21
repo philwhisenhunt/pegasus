@@ -26,7 +26,7 @@ const countdownTimer = {
     pause: function() {
         this.paused = true;
         console.log("Pause was hit");
-        var holder  = this.getDisplayTime; 
+        let holder = this.getDisplayTime(); 
         //still undefined?
         console.log(holder);
 /*
@@ -126,7 +126,7 @@ const countdownTimer = {
     
         }
         else {
-
+            console.log('Now in the else of getDisplaytime');
             difference = updatedTime - startTime;
            
             timeRemaining = this.preciseTimerSetting - difference;
