@@ -6,7 +6,7 @@ const countdownTimer = {
     timeRemaining: null,
     //countdownDisplay: document.querySelector('#first'), //how do I get this to select one clock in one object, and another in another object?
     timeRemaining: null,
-    paused: 1,
+    paused: true,
     running: 0,
 
     initialize: function(){
@@ -24,7 +24,7 @@ const countdownTimer = {
 
 
     pause: function() {
-        this.paused = true;
+        this.paused = false;
         console.log("Pause was hit");
         let holder = this.getDisplayTime(); 
         //still undefined?
@@ -99,7 +99,7 @@ const countdownTimer = {
         //pause the other time
         //start this timer
 
-       
+        this.paused = false;
         //console.log('starting?');
         startTime = new Date().getTime();
 
@@ -107,7 +107,7 @@ const countdownTimer = {
  
 
         //Pause the second timer
-        this.paused = false;
+        
 
        
 
