@@ -6,8 +6,9 @@ const countdownTimer = {
     timeRemaining: null,
     //countdownDisplay: document.querySelector('#first'), //how do I get this to select one clock in one object, and another in another object?
     timeRemaining: null,
-    paused: 1,
+    paused: true,
     running: 0,
+    pauseTime: null,
 
     initialize: function(){
         //once the page loads, set the timer to a certain time
@@ -26,7 +27,13 @@ const countdownTimer = {
     pause: function() {
         this.paused = true;
         console.log("Pause was hit");
-        this.getDisplayTime();
+        let holder = this.getDisplayTime(); 
+        //still undefined?
+        console.log(holder);
+
+        pauseTime = new Date().getTime();
+        console.log(this.pauseTime);
+
 /*
         if (!difference){
             //if the timer never started, then don't do a thing
@@ -96,16 +103,18 @@ const countdownTimer = {
         //if there is time remaining and the other clock is running
         //pause the other time
         //start this timer
-
-       
-        //console.log('starting?');
         startTime = new Date().getTime();
+        while(this.paused = false){
+            setInterval(() => this.getDisplayTime(), 1);
+        };
+        //console.log('starting?');
+        
 
-        setInterval(() => this.getDisplayTime(), 1);
+        
  
 
         //Pause the second timer
-        this.paused = false;
+        
 
        
 
@@ -124,7 +133,7 @@ const countdownTimer = {
     
         }
         else {
-
+            console.log('Now in the else of getDisplaytime');
             difference = updatedTime - startTime;
            
             timeRemaining = this.preciseTimerSetting - difference;
