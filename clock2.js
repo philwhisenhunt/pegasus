@@ -103,12 +103,14 @@ const countdownTimer = {
         //if there is time remaining and the other clock is running
         //pause the other time
         //start this timer
-
-        this.paused = false;
-        //console.log('starting?');
         startTime = new Date().getTime();
+        while(this.paused = false){
+            setInterval(() => this.getDisplayTime(), 1);
+        };
+        //console.log('starting?');
+        
 
-        setInterval(() => this.getDisplayTime(), 1);
+        
  
 
         //Pause the second timer
