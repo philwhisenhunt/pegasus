@@ -1,12 +1,11 @@
 const countdownTimer = {
     startTime: null,
-    paused: false,
+    paused: 1,
     savedTime: null,
     preciseTimerSetting: 300000,
     timeRemaining: null,
     //countdownDisplay: document.querySelector('#first'), //how do I get this to select one clock in one object, and another in another object?
     timeRemaining: null,
-    paused: true,
     running: 0,
     pauseTime: null,
 
@@ -25,14 +24,17 @@ const countdownTimer = {
 
 
     pause: function() {
-        this.paused = 0;
-        console.log("Pause was hit");
-        let holder = this.getDisplayTime(); 
-        //still undefined?
-        console.log(holder);
-
-        pauseTime = new Date().getTime();
-        console.log(this.pauseTime);
+        if(this.paused == 0){
+            this.paused = 1;
+            console.log("Pause was hit");
+            let holder = this.getDisplayTime(); 
+            //still undefined?
+            console.log(holder);
+    
+            pauseTime = new Date().getTime();
+            console.log(this.pauseTime);
+        }
+        
 
 /*
         if (!difference){
@@ -104,6 +106,7 @@ const countdownTimer = {
         //pause the other time
         //start this timer
         console.log('Started, in 1.')
+        this.paused = 0;
         startTime = new Date().getTime();
         // while(this.paused = false){
         // };
@@ -130,11 +133,12 @@ const countdownTimer = {
         //var transfer = this.preciseTimerSetting;
         //how to I pull out the start time from a different method in the same object?
 
-        if(this.paused == 1){
-            console.log('in while');
+        if(this.paused == 0){
+            console.log('in whileeeeeeeeeee');
        
             updatedTime = new Date().getTime();
             if (this.savedTime){
+                console.log('in saved time');
                 difference = (updatedTime - startTime) + savedTime;
                 timeRemaining = (this.preciseTimerSetting - difference);
                 return this.timeRemaining;//trying this
