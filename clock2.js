@@ -25,7 +25,7 @@ const countdownTimer = {
 
 
     pause: function() {
-        this.paused = true;
+        this.paused = 0;
         console.log("Pause was hit");
         let holder = this.getDisplayTime(); 
         //still undefined?
@@ -103,10 +103,12 @@ const countdownTimer = {
         //if there is time remaining and the other clock is running
         //pause the other time
         //start this timer
+        console.log('Started, in 1.')
         startTime = new Date().getTime();
-        while(this.paused = false){
-            setInterval(() => this.getDisplayTime(), 1);
-        };
+        // while(this.paused = false){
+        // };
+        setInterval(() => this.getDisplayTime(), 1);
+
         //console.log('starting?');
         
 
@@ -123,34 +125,43 @@ const countdownTimer = {
     },
 
     getDisplayTime: function(){
+        console.log('Now in 2');
+
         //var transfer = this.preciseTimerSetting;
         //how to I pull out the start time from a different method in the same object?
-        updatedTime = new Date().getTime();
-        if (this.savedTime){
-            difference = (updatedTime - startTime) + savedTime;
-            timeRemaining = (this.preciseTimerSetting - difference);
-            return this.timeRemaining;//trying this
-    
-        }
-        else {
-            console.log('Now in the else of getDisplaytime');
-            difference = updatedTime - startTime;
-           
-            timeRemaining = this.preciseTimerSetting - difference;
-           
+
+        if(this.paused == 1){
+            console.log('in while');
+       
+            updatedTime = new Date().getTime();
+            if (this.savedTime){
+                difference = (updatedTime - startTime) + savedTime;
+                timeRemaining = (this.preciseTimerSetting - difference);
+                return this.timeRemaining;//trying this
+        
+            }
+            else {
+                console.log('Now in the else of getDisplaytime');
+                difference = updatedTime - startTime;
             
-            minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000*60));
-            seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
-            milliseconds = Math.floor((timeRemaining % (1000* 60)) /100);
+                timeRemaining = this.preciseTimerSetting - difference;
+            
+                
+                minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000*60));
+                seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+                milliseconds = Math.floor((timeRemaining % (1000* 60)) /100);
 
-            minutes = (minutes < 10) ? "0" + minutes : minutes;
-            seconds = (seconds < 10) ? "0" + seconds : seconds;
-            milliseconds = (milliseconds < 10) ? "0" + milliseconds : milliseconds;
-            //console.log("This time " + minutes + ":" + seconds + ":" + milliseconds);
-            //countdownDisplay.innerHTML = minutes + ":" + seconds + ":" + milliseconds;
+                minutes = (minutes < 10) ? "0" + minutes : minutes;
+                seconds = (seconds < 10) ? "0" + seconds : seconds;
+                milliseconds = (milliseconds < 10) ? "0" + milliseconds : milliseconds;
+                //console.log("This time " + minutes + ":" + seconds + ":" + milliseconds);
+                //countdownDisplay.innerHTML = minutes + ":" + seconds + ":" + milliseconds;
 
-           
+            
+            }
         }
+        console.log('Three');
+
         this.countdownDisplay.innerHTML = minutes + ":" + seconds + ":" + milliseconds;
 
         /*
