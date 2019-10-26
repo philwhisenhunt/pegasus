@@ -8,6 +8,7 @@ const countdownTimer = {
     timeRemaining: null,
     running: 0,
     pauseTime: null,
+    firstTimerButton = document.getElementById('button1') 
 
     initialize: function(){
         //once the page loads, set the timer to a certain time
@@ -24,9 +25,11 @@ const countdownTimer = {
 
 
     pause: function() {
-        if(this.paused == 0){
+        console.log('in pauseeeeeeee'); // pause is not being hit.
+        if(this.paused == 1){
+            //console.log("Pause was hiiiiiiiit");
             this.paused = 1;
-            console.log("Pause was hit");
+            
             let holder = this.getDisplayTime(); 
             //still undefined?
             console.log(holder);
