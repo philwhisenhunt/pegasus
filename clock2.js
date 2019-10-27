@@ -8,7 +8,7 @@ const countdownTimer = {
     timeRemaining: null,
     running: 0,
     pauseTime: null,
-    firstTimerButton = document.getElementById('button1') 
+    firstTimerButton: document.getElementById('button1'), 
 
     initialize: function(){
         //once the page loads, set the timer to a certain time
@@ -166,6 +166,7 @@ const countdownTimer = {
 
             
             }
+            // break;
         }
         console.log('Three');
 
