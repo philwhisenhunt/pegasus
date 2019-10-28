@@ -113,6 +113,7 @@ const countdownTimer = {
         startTime = new Date().getTime();
         // while(this.paused = false){
         // };
+        countdownTimer2.pause();
         setInterval(() => this.getDisplayTime(), 1);
 
         //console.log('starting?');
@@ -166,7 +167,7 @@ const countdownTimer = {
 
             
             }
-            // break;
+            
         }
         console.log('Three');
 
