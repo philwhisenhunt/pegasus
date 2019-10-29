@@ -8,6 +8,7 @@ const countdownTimer = {
     timeRemaining: null,
     running: 0,
     pauseTime: null,
+    userSetMinutesPlayer: 5,
     firstTimerButton: document.getElementById('button1'), 
 
     initialize: function(){
@@ -63,7 +64,7 @@ const countdownTimer = {
     },
 
     reset: function(){
-        clearInterval(timeInterval1);
+        //clearInterval(timeInterval1);
         this.savedTime = 0;
         difference = 0;
         paused = 0;
