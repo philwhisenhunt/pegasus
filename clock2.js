@@ -19,6 +19,7 @@ const countdownTimer = {
       
         console.log('Started');
         console.log(this.paused);
+        this.paused = 0; //no longer paused
         this.startTime = new Date().getTime();
       
         // countdownTimer2.pause();
@@ -44,7 +45,7 @@ const countdownTimer = {
         console.log('Now in getDisplayTime');
 
         if(this.paused == 0){
-            //console.log('in whileeeeeeeeeee');
+            console.log('in whileeeeeeeeeee');
        
             this.updatedTime = new Date().getTime();
             if (this.savedTime){
