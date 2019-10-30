@@ -11,24 +11,22 @@ const countdownTimer = {
     userSetMinutesPlayer: 5,
     firstTimerButton: document.getElementById('button1'), 
 
-    initialize: function(){
-        //once the page loads, set the timer to a certain time
-        this.running = 1;
-        //set running to yes
-        //then, once a button is hit, start the other timer
-    },
+    start: function(){
+      
+        console.log('Started, in 1.')
+        this.paused = 0;
+        startTime = new Date().getTime();
+      
+        countdownTimer2.pause();
+        setInterval(() => this.getDisplayTime(), 1);
 
-    flipper: function() { 
-        //if running, then depending on the button, start the other clock
-        //if button pressed equals second, start timer one
-        //if button pressed equals first, start timer two
     },
 
 
     pause: function() {
-        console.log('in pauseeeeeeee'); // pause is not being hit.
+        console.log('in pause'); // pause is not being hit.
         if(this.paused == 1){
-            //console.log("Pause was hiiiiiiiit");
+            //console.log("Pause was hit");
             this.paused = 1;
             
             let holder = this.getDisplayTime(); 
@@ -105,32 +103,7 @@ const countdownTimer = {
     //     }
     // },
 
-    start: function(){
-        //if there is time remaining and the other clock is running
-        //pause the other time
-        //start this timer
-        console.log('Started, in 1.')
-        this.paused = 0;
-        startTime = new Date().getTime();
-        // while(this.paused = false){
-        // };
-        countdownTimer2.pause();
-        setInterval(() => this.getDisplayTime(), 1);
 
-        //console.log('starting?');
-        
-
-        
- 
-
-        //Pause the second timer
-        
-
-       
-
-       // this.countdownDisplay.style.color = "black";
-        //how to get this to start the time? 
-    },
 
     getDisplayTime: function(){
         console.log('Now in 2');
