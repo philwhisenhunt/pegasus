@@ -83,27 +83,6 @@ const countdownTimer = {
         this.countdownDisplay.innerHTML = minutes + ":" + seconds + ":" + milliseconds;
     },
 
-    // flip: function (){
-    //     console.log('something happened');
-    //     if(countdownTimer1.paused == true){
-    //         countdownTimer2.paused = true;
-    //         countdownTimer1.start(); 
-    //     }
-
-
-
-    //     else if(countdownTimer1.paused == true){
-    //         countdownTimer1.paused = true;
-    //         countdownTimer2.start(); 
-    //     }
-
-    //     else{
-    //         countdownTimer1.start(); 
-
-    //     }
-    // },
-
-
 
     getDisplayTime: function(){
         console.log('Now in 2');
@@ -147,33 +126,7 @@ const countdownTimer = {
 
         this.countdownDisplay.innerHTML = minutes + ":" + seconds + ":" + milliseconds;
 
-        /*
-        
     
-    
-        if(minutes <= 0){
-            minutes = 0;
-        }
-    
-        if(seconds <= 0){
-            seconds = 0;
-        }
-    
-        if(milliseconds <= 0){
-            milliseconds = 0;
-        }
-        
-        minutes = (minutes < 10) ? "0" + minutes : minutes;
-        seconds = (seconds < 10) ? "0" + seconds : seconds;
-        milliseconds = (milliseconds < 10) ? "0" + milliseconds : milliseconds;
-    
-        if(timeRemaining <= 0 ){
-            // this.firstClock.style.backgroundColor = '#FF6347';  
-        }
-        */
-        // console.log("minutes: " + minutes + "seconds: " + seconds); //why isn't this outputting anything?
-        //this.countdownDisplay.innerHTML = minutes + ":" + seconds + ":" + milliseconds;
-        // countdownDisplay.innerHTML = minutes + ":" + seconds;
     }
 
 
@@ -182,22 +135,3 @@ const countdownTimer = {
 const countdownTimer2 = Object.assign({}, countdownTimer, { countdownDisplay: document.querySelector('#first')});
 const countdownTimer1 = Object.assign({}, countdownTimer, { countdownDisplay: document.querySelector('#second')});
 
-//perhaps contain the above in an if else statement
-/*
-If countdownTimer1.running === true
-then run countdownTimer2
-else
-run countdownTimer1
-*/
-
-// timeRemaining = this.preciseTimerSetting - difference;
-           
-            
-// minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000*60));
-// seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
-// milliseconds = Math.floor((timeRemaining % (1000* 60)) /100);
-
-// minutes = (minutes < 10) ? "0" + minutes : minutes;
-// seconds = (seconds < 10) ? "0" + seconds : seconds;
-// milliseconds = (milliseconds < 10) ? "0" + milliseconds : milliseconds;
-// countdownDisplay.innerHTML = minutes + ":" + seconds + ":" + milliseconds;
