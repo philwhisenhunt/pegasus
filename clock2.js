@@ -10,6 +10,9 @@ const countdownTimer = {
     pauseTime: null,
     userSetMinutesPlayer: 5,
     firstTimerButton: document.getElementById('button1'), 
+    minutes: null,
+    seconds: null,
+    milliseconds: null,
 
     start: function(){
       
@@ -27,14 +30,14 @@ const countdownTimer = {
         console.log('in pause'); // pause is not being hit.
         if(this.paused == 1){
             //console.log("Pause was hit");
-            this.paused = 1;
+            this.paused = 0;
             
             let holder = this.getDisplayTime(); 
             //still undefined?
-            console.log(holder);
+            //console.log(holder);
     
             pauseTime = new Date().getTime();
-            console.log(this.pauseTime);
+            //console.log(this.pauseTime);
         }
         
 
@@ -85,13 +88,13 @@ const countdownTimer = {
 
 
     getDisplayTime: function(){
-        console.log('Now in 2');
+        //console.log('Now in 2');
 
         //var transfer = this.preciseTimerSetting;
         //how to I pull out the start time from a different method in the same object?
 
         if(this.paused == 0){
-            console.log('in whileeeeeeeeeee');
+            //console.log('in whileeeeeeeeeee');
        
             updatedTime = new Date().getTime();
             if (this.savedTime){
@@ -102,19 +105,19 @@ const countdownTimer = {
         
             }
             else {
-                console.log('Now in the else of getDisplaytime');
+                //console.log('Now in the else of getDisplaytime');
                 difference = updatedTime - startTime;
             
                 timeRemaining = this.preciseTimerSetting - difference;
             
                 
-                minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000*60));
-                seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
-                milliseconds = Math.floor((timeRemaining % (1000* 60)) /100);
+                this.minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000*60));
+                this.seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+                this.milliseconds = Math.floor((timeRemaining % (1000* 60)) /100);
 
-                minutes = (minutes < 10) ? "0" + minutes : minutes;
-                seconds = (seconds < 10) ? "0" + seconds : seconds;
-                milliseconds = (milliseconds < 10) ? "0" + milliseconds : milliseconds;
+                this.minutes = (this.minutes < 10) ? "0" + this.minutes : this.minutes;
+                this.seconds = (this.seconds < 10) ? "0" + this.seconds : this.seconds;
+                this.milliseconds = (this.milliseconds < 10) ? "0" + this.milliseconds : this.milliseconds;
                 //console.log("This time " + minutes + ":" + seconds + ":" + milliseconds);
                 //countdownDisplay.innerHTML = minutes + ":" + seconds + ":" + milliseconds;
 
@@ -124,7 +127,7 @@ const countdownTimer = {
         }
         console.log('Three');
 
-        this.countdownDisplay.innerHTML = minutes + ":" + seconds + ":" + milliseconds;
+        this.countdownDisplay.innerHTML = this.minutes + ":" + this.seconds + ":" + this.milliseconds;
 
     
     }
