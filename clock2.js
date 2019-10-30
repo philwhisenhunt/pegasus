@@ -13,12 +13,13 @@ const countdownTimer = {
     minutes: null,
     seconds: null,
     milliseconds: null,
+    difference: null,
 
     start: function(){
       
         console.log('Started, in 1.')
         this.paused = 0;
-        startTime = new Date().getTime();
+        this.startTime = new Date().getTime();
       
         countdownTimer2.pause();
         setInterval(() => this.getDisplayTime(), 1);
@@ -31,62 +32,19 @@ const countdownTimer = {
         if(this.paused == 1){
             //console.log("Pause was hit");
             this.paused = 0;
-            
-            let holder = this.getDisplayTime(); 
-            //still undefined?
-            //console.log(holder);
+          
     
-            pauseTime = new Date().getTime();
-            //console.log(this.pauseTime);
+            this.pauseTime = new Date().getTime();
+            this.difference =  this.pauseTime - this.startTime;
+
+
+            console.log(this.difference);
         }
         
-
-/*
-        if (!difference){
-            //if the timer never started, then don't do a thing
-            console.log("no difference, didn't do a thing");
-        }
-    
-        else if (!paused) {
-            // clearInterval(timeInterval);
-            // savedTime = difference;
-            // paused = 1;
-            // running = 0;
-            // timeRemaining = preciseTimerSetting - difference;
-            // return savedTime;
-    
-        }
-    
-        else {
-            this.start();
-        }
-        */
 
     },
 
-    reset: function(){
-        //clearInterval(timeInterval1);
-        this.savedTime = 0;
-        difference = 0;
-        paused = 0;
-        running = 0;
-        this.preciseTimerSetting = userSetMinutesPlayer * 60 * 1000;
-        timeRemaining = this.preciseTimerSetting - difference;
-    
-    
-    
-        minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000*60));
-        seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
-        milliseconds = Math.floor((timeRemaining % (1000* 60)) /100);
-        
-        minutes = (minutes1 < 10) ? "0" + minutes : minutes;
-        seconds = (seconds1 < 10) ? "0" + seconds : seconds;
-        milliseconds = (milliseconds < 10) ? "0" + milliseconds : milliseconds;
-        
-        this.countdownDisplay.innerHTML = minutes + ":" + seconds + ":" + milliseconds;
-    },
-
-
+ 
     getDisplayTime: function(){
         //console.log('Now in 2');
 
@@ -130,6 +88,28 @@ const countdownTimer = {
         this.countdownDisplay.innerHTML = this.minutes + ":" + this.seconds + ":" + this.milliseconds;
 
     
+    },
+
+    reset: function(){
+        //clearInterval(timeInterval1);
+        this.savedTime = 0;
+        difference = 0;
+        paused = 0;
+        running = 0;
+        this.preciseTimerSetting = userSetMinutesPlayer * 60 * 1000;
+        timeRemaining = this.preciseTimerSetting - difference;
+    
+    
+    
+        minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000*60));
+        seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+        milliseconds = Math.floor((timeRemaining % (1000* 60)) /100);
+        
+        minutes = (minutes1 < 10) ? "0" + minutes : minutes;
+        seconds = (seconds1 < 10) ? "0" + seconds : seconds;
+        milliseconds = (milliseconds < 10) ? "0" + milliseconds : milliseconds;
+        
+        this.countdownDisplay.innerHTML = minutes + ":" + seconds + ":" + milliseconds;
     }
 
 
