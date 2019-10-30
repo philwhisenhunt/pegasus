@@ -17,61 +17,53 @@ const countdownTimer = {
 
     start: function(){
       
-        console.log('Started, in 1.')
-        this.paused = 0;
+        console.log('Started');
+        console.log(this.paused);
         this.startTime = new Date().getTime();
       
-        countdownTimer2.pause();
+        // countdownTimer2.pause();
         setInterval(() => this.getDisplayTime(), 1);
 
     },
 
 
     pause: function() {
-        console.log('in pause'); // pause is not being hit.
-        if(this.paused == 1){
-            //console.log("Pause was hit");
-            this.paused = 0;
-          
-    
-            this.pauseTime = new Date().getTime();
-            this.difference =  this.pauseTime - this.startTime;
+        console.log('in pause'); 
+        console.log(this.paused);
 
-
-            console.log(this.difference);
+        if(this.paused == 0){
+            console.log("Pause was hit");
+            this.paused = 1;
         }
-        
-
+    
+    
     },
 
  
     getDisplayTime: function(){
-        //console.log('Now in 2');
-
-        //var transfer = this.preciseTimerSetting;
-        //how to I pull out the start time from a different method in the same object?
+        console.log('Now in getDisplayTime');
 
         if(this.paused == 0){
             //console.log('in whileeeeeeeeeee');
        
-            updatedTime = new Date().getTime();
+            this.updatedTime = new Date().getTime();
             if (this.savedTime){
                 console.log('in saved time');
-                difference = (updatedTime - startTime) + savedTime;
-                timeRemaining = (this.preciseTimerSetting - difference);
-                return this.timeRemaining;//trying this
+                this.difference = (this.updatedTime - this.startTime) + this.savedTime;
+                this.timeRemaining = (this.preciseTimerSetting - this.difference);
+                // return this.timeRemaining;//trying this
         
             }
             else {
                 //console.log('Now in the else of getDisplaytime');
-                difference = updatedTime - startTime;
+                this.difference = this.updatedTime - this.startTime;
             
-                timeRemaining = this.preciseTimerSetting - difference;
+                this.timeRemaining = this.preciseTimerSetting - this.difference;
             
                 
-                this.minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000*60));
-                this.seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
-                this.milliseconds = Math.floor((timeRemaining % (1000* 60)) /100);
+                this.minutes = Math.floor((this.timeRemaining % (1000 * 60 * 60)) / (1000*60));
+                this.seconds = Math.floor((this.timeRemaining % (1000 * 60)) / 1000);
+                this.milliseconds = Math.floor((this.timeRemaining % (1000* 60)) /100);
 
                 this.minutes = (this.minutes < 10) ? "0" + this.minutes : this.minutes;
                 this.seconds = (this.seconds < 10) ? "0" + this.seconds : this.seconds;
@@ -83,7 +75,7 @@ const countdownTimer = {
             }
             
         }
-        console.log('Three');
+        //console.log('Three');
 
         this.countdownDisplay.innerHTML = this.minutes + ":" + this.seconds + ":" + this.milliseconds;
 
