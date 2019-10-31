@@ -45,7 +45,7 @@ const countdownTimer = {
         console.log('Now in getDisplayTime');
 
         if(this.paused == 0){
-            console.log('in whileeeeeeeeeee');
+            //console.log('in while');
        
             this.updatedTime = new Date().getTime();
             if (this.savedTime){
@@ -58,7 +58,7 @@ const countdownTimer = {
             else {
                 //console.log('Now in the else of getDisplaytime');
                 this.difference = this.updatedTime - this.startTime;
-            
+                this.savedTime = this.difference;
                 this.timeRemaining = this.preciseTimerSetting - this.difference;
             
                 
