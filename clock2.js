@@ -1,3 +1,24 @@
+const btn1 = document.getElementById('button1');
+const btn2 = document.getElementById('button2');
+const resetBtn = document.getElementById('resetBtn');
+
+btn1.addEventListener('click', function btn1ClickHandler(e){
+    countdownTimer1.start();
+    countdownTimer2.pause();
+});
+
+btn1.addEventListener('click', function btn2ClickHandler(e){
+    countdownTimer2.start();
+    countdownTimer1.pause();
+});
+
+resetBtn.addEventListener('click', function resetClickHandler(e){
+    resetCountdown2.reset();
+});
+
+const countdownTimer2 = Object.assign({}, countdownTimer, { name: "timer1", countdownDisplay: document.querySelector('#first')});
+const countdownTimer1 = Object.assign({}, countdownTimer, { name: "timer2",countdownDisplay: document.querySelector('#second')});
+
 const countdownTimer = {
     startTime: null,
     paused: 1,
@@ -108,6 +129,5 @@ const countdownTimer = {
 
 };
 
-const countdownTimer2 = Object.assign({}, countdownTimer, { countdownDisplay: document.querySelector('#first')});
-const countdownTimer1 = Object.assign({}, countdownTimer, { countdownDisplay: document.querySelector('#second')});
+
 
