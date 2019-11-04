@@ -16,8 +16,6 @@ resetBtn.addEventListener('click', function resetClickHandler(e){
     resetCountdown2.reset();
 });
 
-const countdownTimer2 = Object.assign({}, countdownTimer, { name: "timer1", countdownDisplay: document.querySelector('#first')});
-const countdownTimer1 = Object.assign({}, countdownTimer, { name: "timer2",countdownDisplay: document.querySelector('#second')});
 
 const countdownTimer = {
     startTime: null,
@@ -31,6 +29,7 @@ const countdownTimer = {
     pauseTime: null,
     userSetMinutesPlayer: 5,
     firstTimerButton: document.getElementById('button1'), 
+    secondTimerButton: document.getElementById('button2'), 
     minutes: null,
     seconds: null,
     milliseconds: null,
@@ -131,3 +130,5 @@ const countdownTimer = {
 
 
 
+const countdownTimer2 = Object.assign({}, countdownTimer, { name: "timer1", countdownDisplay: document.querySelector('#first')});
+const countdownTimer1 = Object.assign({}, countdownTimer, { name: "timer2",countdownDisplay: document.querySelector('#second')});
