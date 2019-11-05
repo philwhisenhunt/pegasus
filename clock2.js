@@ -7,7 +7,7 @@ btn1.addEventListener('click', function btn1ClickHandler(e){
     countdownTimer2.pause();
 });
 
-btn1.addEventListener('click', function btn2ClickHandler(e){
+btn2.addEventListener('click', function btn2ClickHandler(e){
     countdownTimer2.start();
     countdownTimer1.pause();
 });
