@@ -37,7 +37,8 @@ const countdownTimer = {
 
     start: function(){
       
-        console.log('Started');
+        console.log('Startedeeee');
+        debugger
         console.log(this.paused);
         this.paused = 0; //no longer paused
         this.startTime = new Date().getTime();
