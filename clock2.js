@@ -100,9 +100,9 @@ const countdownTimer = {
             
         }
         //console.log('Three');
-        debugger
+        
         this.countdownDisplay.innerHTML = this.minutes + ":" + this.seconds + ":" + this.milliseconds;
-
+        
     
     },
 
