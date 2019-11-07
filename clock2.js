@@ -38,7 +38,6 @@ const countdownTimer = {
     start: function(){
       
         console.log('Startedeeee');
-        debugger
         console.log(this.paused);
         this.paused = 0; //no longer paused
         this.startTime = new Date().getTime();
@@ -64,8 +63,10 @@ const countdownTimer = {
  
     getDisplayTime: function(){
         console.log('Now in getDisplayTime');
+        
 
         if(this.paused == 0){
+            
             //console.log('in while');
        
             this.updatedTime = new Date().getTime();
@@ -78,6 +79,7 @@ const countdownTimer = {
             }
             else {
                 //console.log('Now in the else of getDisplaytime');
+                
                 this.difference = this.updatedTime - this.startTime;
                 this.savedTime = this.difference;
                 this.timeRemaining = this.preciseTimerSetting - this.difference;
@@ -98,7 +100,7 @@ const countdownTimer = {
             
         }
         //console.log('Three');
-
+        debugger
         this.countdownDisplay.innerHTML = this.minutes + ":" + this.seconds + ":" + this.milliseconds;
 
     
