@@ -76,6 +76,14 @@ const countdownTimer = {
                 this.difference = (this.updatedTime - this.startTime) + this.savedTime;
                 this.timeRemaining = (this.preciseTimerSetting - this.difference);
                 // return this.timeRemaining;//trying this
+
+                this.minutes = Math.floor((this.timeRemaining % (1000 * 60 * 60)) / (1000*60));
+                this.seconds = Math.floor((this.timeRemaining % (1000 * 60)) / 1000);
+                this.milliseconds = Math.floor((this.timeRemaining % (1000* 60)) /100);
+
+                this.minutes = (this.minutes < 10) ? "0" + this.minutes : this.minutes;
+                this.seconds = (this.seconds < 10) ? "0" + this.seconds : this.seconds;
+                this.milliseconds = (this.milliseconds < 10) ? "0" + this.milliseconds : this.milliseconds;
         
             }
             else {
