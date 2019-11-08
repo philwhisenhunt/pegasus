@@ -71,6 +71,7 @@ const countdownTimer = {
        
             this.updatedTime = new Date().getTime();
             if (this.savedTime){
+                //there is saved time, so that is why it is stopping
                 console.log('in saved time');
                 this.difference = (this.updatedTime - this.startTime) + this.savedTime;
                 this.timeRemaining = (this.preciseTimerSetting - this.difference);
@@ -92,7 +93,7 @@ const countdownTimer = {
                 this.minutes = (this.minutes < 10) ? "0" + this.minutes : this.minutes;
                 this.seconds = (this.seconds < 10) ? "0" + this.seconds : this.seconds;
                 this.milliseconds = (this.milliseconds < 10) ? "0" + this.milliseconds : this.milliseconds;
-                //console.log("This time " + minutes + ":" + seconds + ":" + milliseconds);
+                console.log("This time " + minutes + ":" + seconds + ":" + milliseconds);
                 //countdownDisplay.innerHTML = minutes + ":" + seconds + ":" + milliseconds;
 
             
