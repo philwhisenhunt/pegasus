@@ -118,9 +118,9 @@ const countdownTimer = {
     reset: function(){
         //clearInterval(timeInterval1);
         this.savedTime = 0;
-        difference = 0;
-        paused = 0;
-        running = 0;
+        this.difference = 0;
+        this.paused = 0;
+        this.running = 0;
         this.preciseTimerSetting = userSetMinutesPlayer * 60 * 1000;
         timeRemaining = this.preciseTimerSetting - difference;
     
