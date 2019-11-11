@@ -103,7 +103,7 @@ const countdownTimer = {
                 this.minutes = (this.minutes < 10) ? "0" + this.minutes : this.minutes;
                 this.seconds = (this.seconds < 10) ? "0" + this.seconds : this.seconds;
                 this.milliseconds = (this.milliseconds < 10) ? "0" + this.milliseconds : this.milliseconds;
-                console.log("This time " + minutes + ":" + seconds + ":" + milliseconds);
+                //console.log("This time " + minutes + ":" + seconds + ":" + milliseconds);
                 //countdownDisplay.innerHTML = minutes + ":" + seconds + ":" + milliseconds;
 
             
@@ -123,20 +123,13 @@ const countdownTimer = {
         this.difference = 0;
         this.paused = 0;
         this.running = 0;
-        this.preciseTimerSetting = userSetMinutesPlayer * 60 * 1000;
-        timeRemaining = this.preciseTimerSetting - difference;
+        this.minutes = 0;
+        this.preciseTimerSetting = this.userSetMinutesPlayer * 60 * 1000;
+        this.timeRemaining = this.preciseTimerSetting - this.difference;
     
     
     
-        minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000*60));
-        seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
-        milliseconds = Math.floor((timeRemaining % (1000* 60)) /100);
-        
-        minutes = (minutes1 < 10) ? "0" + minutes : minutes;
-        seconds = (seconds1 < 10) ? "0" + seconds : seconds;
-        milliseconds = (milliseconds < 10) ? "0" + milliseconds : milliseconds;
-        
-        this.countdownDisplay.innerHTML = minutes + ":" + seconds + ":" + milliseconds;
+        this.getDisplayTime();
     }
 
 
