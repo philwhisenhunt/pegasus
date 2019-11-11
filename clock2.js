@@ -13,7 +13,9 @@ btn2.addEventListener('click', function btn2ClickHandler(e){
 });
 
 resetBtn.addEventListener('click', function resetClickHandler(e){
-    resetCountdown2.reset();
+    countdownTimer1.reset();
+    countdownTimer2.reset();
+
 });
 
 
