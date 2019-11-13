@@ -121,7 +121,7 @@ const countdownTimer = {
         //clearInterval(timeInterval1);
         this.savedTime = 0;
         this.difference = 0;
-        this.paused = 0;
+        this.paused = 1;
         this.running = 0;
         this.minutes = 0;
         this.preciseTimerSetting = this.userSetMinutesPlayer * 60 * 1000;
