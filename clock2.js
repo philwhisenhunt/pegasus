@@ -65,7 +65,8 @@ const countdownTimer = {
  
     getDisplayTime: function(){
         console.log('Now in getDisplayTime');
-        
+        console.log(this.preciseTimerSetting);
+
 
         if(this.paused == 0){
             
@@ -125,6 +126,9 @@ const countdownTimer = {
         this.running = 0;
         this.minutes = 0;
         this.preciseTimerSetting = this.userSetMinutesPlayer * 60 * 1000;
+        console.log(this.userSetMinutesPlayer);
+        console.log(this.preciseTimerSetting);
+
         this.timeRemaining = this.preciseTimerSetting - this.difference;
     
     
