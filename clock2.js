@@ -133,7 +133,16 @@ const countdownTimer = {
     
     
     
-        this.getDisplayTime();
+        this.minutes = Math.floor((this.timeRemaining % (1000 * 60 * 60)) / (1000*60));
+        this.seconds = Math.floor((this.timeRemaining % (1000 * 60)) / 1000);
+        this.milliseconds = Math.floor((this.timeRemaining % (1000* 60)) /100);
+
+        this.minutes = (this.minutes < 10) ? "0" + this.minutes : this.minutes;
+        this.seconds = (this.seconds < 10) ? "0" + this.seconds : this.seconds;
+        this.milliseconds = (this.milliseconds < 10) ? "0" + this.milliseconds : this.milliseconds;
+
+        this.countdownDisplay.innerHTML = this.minutes + ":" + this.seconds + ":" + this.milliseconds;
+
     }
 
 
