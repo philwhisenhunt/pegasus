@@ -17,6 +17,7 @@ resetBtn.addEventListener('click', function resetClickHandler(e){
     countdownTimer2.reset();
 
 });
+window.onload(function) // Make the timer set to 5 minutes automatically on load.
 
 
 const countdownTimer = {
