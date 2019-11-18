@@ -69,8 +69,8 @@ const countdownTimer = {
 
     start: function(){
       
-        console.log('Startedeeee');
-        console.log(this.paused);
+        // console.log('Startedeeee');
+        // console.log(this.paused);
         this.paused = 0; //no longer paused
         this.startTime = new Date().getTime();
       
@@ -81,10 +81,16 @@ const countdownTimer = {
 
 
     pause: function() {
-        console.log('in pause'); 
-        console.log(this.paused);
+        // console.log('in pause'); 
+        // console.log(this.paused);
 
         if(this.paused == 0){
+            //take a timestamp
+            this.pauseTime = new Date().getTime();
+            //subtract the original time stamp from it.
+            this.savedTime = this.pauseTime - this.startTime;
+            console.log(this.savedTime + " is the saved time");
+            //save the time
             console.log("Pause was hit");
             this.paused = 1;
         }
@@ -94,8 +100,8 @@ const countdownTimer = {
 
  
     getDisplayTime: function(){
-        console.log('Now in getDisplayTime');
-        console.log(this.preciseTimerSetting);
+        // console.log('Now in getDisplayTime');
+        // console.log(this.preciseTimerSetting);
 
 
         if(this.paused == 0){
