@@ -19,6 +19,27 @@ resetBtn.addEventListener('click', function resetClickHandler(e){
 });
 
 
+window.addEventListener('keydown', function(e) {
+    
+
+    if(e.keyCode == 32 && e.target == document.body) {
+        e.preventDefault();
+        if (e.keyCode == 32) {
+            if(countdownTimer1.paused == 1){
+                countdownTimer1.start();
+                countdownTimer2.pause();
+            }
+            else{
+                countdownTimer2.start();
+                countdownTimer1.pause();
+            }
+  
+  
+        }
+      }
+});
+
+
 
 document.onreadystatechange = function () {
 
