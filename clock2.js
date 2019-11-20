@@ -59,7 +59,7 @@ const countdownTimer = {
     timeRemaining: null,
     running: 0,
     pauseTime: null,
-    userSetMinutesPlayer: 5,
+    userSetMinutesPlayer: .03,
     firstTimerButton: document.getElementById('button1'), 
     secondTimerButton: document.getElementById('button2'), 
     minutes: null,
@@ -131,6 +131,8 @@ const countdownTimer = {
                 this.difference = this.updatedTime - this.startTime;
                 this.savedTime = this.difference;
                 this.timeRemaining = this.preciseTimerSetting - this.difference;
+
+              
             
                 
                 this.minutes = Math.floor((this.timeRemaining % (1000 * 60 * 60)) / (1000*60));
@@ -148,8 +150,12 @@ const countdownTimer = {
             
         }
         //console.log('Three');
-        
-        this.countdownDisplay.innerHTML = this.minutes + ":" + this.seconds + ":" + this.milliseconds;
+        if(this.timeRemaining <= 0){
+            this.countdownDisplay.innerHTML = "00:00:00";        
+        }
+        else{
+            this.countdownDisplay.innerHTML = this.minutes + ":" + this.seconds + ":" + this.milliseconds;
+        }
         
     
     },
