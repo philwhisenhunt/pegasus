@@ -94,8 +94,6 @@ const countdownTimer = {
  
     getDisplayTime: function(){
       
-
-
         if(this.paused == 0){
             
             this.updatedTime = new Date().getTime();
