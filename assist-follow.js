@@ -9,4 +9,11 @@ function createTimer(name, domElement){
     }
 
     let startTime = null;
+    let paused = true;
+    let curTime = 0;
+    let preciseTimerSetting = 30000;
+    let savedTime = null;
+
+    //why do we return public api here?
+    return PUBLIC_API;
 }
