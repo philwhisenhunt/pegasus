@@ -16,4 +16,12 @@ function createTimer(name, domElement){
 
     //why do we return public api here?
     return PUBLIC_API;
+
+    function setPreciseTimerSetting(timerSetting){
+        preciseTimerSetting = timerSetting;
+    }
+
+    function reset(){
+        starteTime = null;
+    }
 }
