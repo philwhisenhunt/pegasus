@@ -23,5 +23,13 @@ function createTimer(name, domElement){
 
     function reset(){
         starteTime = null;
+        paused = true;
+        savedTime = null;
+        printDisplay("");
+    }
+
+    //start a timer
+    function start(){
+        
     }
 }
