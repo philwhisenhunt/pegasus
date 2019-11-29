@@ -30,6 +30,26 @@ function createTimer(name, domElement){
 
     //start a timer
     function start(){
-        
+        paused = false;
+        console.log(name, "Started");
+        //if  a startTime exists, don't overwrite it
+        startTime = startTime ? startTime : new Date().getTime();
+
+        setInterval(updated, 1);
     }
+
+    function pause(){
+        paused = true;
+        console.log(name, "Paused");
+    }
+
+    function printDisplay(str){
+        domElement.innerHTML = str;
+    }
+
+    function toHumanReadableTime(minutes, seconds, milliseconds){
+        const min = (minutes < 10) ? "0" + minutes : minutes;
+    }
+
+
 }
