@@ -49,6 +49,9 @@ function createTimer(name, domElement){
 
     function toHumanReadableTime(minutes, seconds, milliseconds){
         const min = (minutes < 10) ? "0" + minutes : minutes;
+        const sec = (seconds <10) ? "0" + seconds : seconds;
+        const ms = (milliseconds < 10) ? "0" + milliseconds : milliseconds;
+        return `${min}:${sec}:${ms}`;
     }
 
 
