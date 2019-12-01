@@ -52,7 +52,14 @@ function createTimer(name, domElement){
         const sec = (seconds <10) ? "0" + seconds : seconds;
         const ms = (milliseconds < 10) ? "0" + milliseconds : milliseconds;
         return `${min}:${sec}:${ms}`;
-    }
 
+    }
+    function updateTime(){
+        if(!paused){
+            const curTime = new Date().getTime();
+            const difference = curTime - startTime;
+            const timeRemaining = precideTimerSetting - difference;
+            }
+    }
 
 }
