@@ -59,7 +59,12 @@ function createTimer(name, domElement){
             const curTime = new Date().getTime();
             const difference = curTime - startTime;
             const timeRemaining = precideTimerSetting - difference;
-            }
+           
+            savedTime = difference;
+
+            const minutes = Math.floor((timeRemaining % (1000*60*60)) / (1000*60));
+        
+        }
     }
 
 }
