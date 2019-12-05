@@ -1,3 +1,11 @@
+btn1.addEventListener('click',function btn1ClickHandler(e){
+    cdTimer1.start();
+    cdTimer2.pause();
+})
+
+
+
+
 function createTimer(name, domElement){
     //first we create a variable with PUBLIC_API
 
