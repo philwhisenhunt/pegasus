@@ -1,8 +1,24 @@
+const btn1 = document.getElementById('button1');
+const btn2 = document.getElementById('button2');
+const resetBtn = document.getElementById('resetBtn');
+
+const cdTimer1 = createTimer("timer1", document.querySelector('#first'));
+
+
 btn1.addEventListener('click',function btn1ClickHandler(e){
     cdTimer1.start();
     cdTimer2.pause();
-})
+});
 
+btn2.addEventListener('click', function btn2Clickhandler(e){
+    cdTimer1.pause();
+    cdTimer2.start();
+});
+
+resetBtn.addEventListener('click', function resetClickHandler(e){
+    cdTimer1.reset();
+    cdTimer2.reset();
+})
 
 
 
