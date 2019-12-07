@@ -3,7 +3,7 @@ const btn2 = document.getElementById('button2');
 const resetBtn = document.getElementById('resetBtn');
 
 const cdTimer1 = createTimer("timer1", document.querySelector('#first'));
-
+const cdTimer2 = createTimer("timer2", document.querySelector('#second'));
 
 btn1.addEventListener('click',function btn1ClickHandler(e){
     cdTimer1.start();
