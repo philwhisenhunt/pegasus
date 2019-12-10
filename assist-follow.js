@@ -34,7 +34,7 @@ function createTimer(name, domElement){
 
     let startTime = null;
     let paused = true;
-  
+    let curTime = 0;
     let preciseTimerSetting = 30000;
     let savedTime = null;
 
@@ -46,7 +46,7 @@ function createTimer(name, domElement){
     }
 
     function reset(){
-        starteTime = null;
+        startTime = null;
         paused = true;
         savedTime = null;
         printDisplay("");
