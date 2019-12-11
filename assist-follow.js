@@ -59,7 +59,7 @@ function createTimer(name, domElement){
         //if  a startTime exists, don't overwrite it
         startTime = startTime ? startTime : new Date().getTime();
 
-        setInterval(updated, 1);
+        setInterval(updatedTime, 1);
     }
 
     function pause(){
