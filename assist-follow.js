@@ -59,7 +59,7 @@ function createTimer(name, domElement){
         //if  a startTime exists, don't overwrite it
         startTime = startTime ? startTime : new Date().getTime();
 
-        setInterval(updatedTime, 1);
+        setInterval(updateTime, 1);
     }
 
     function pause(){
@@ -73,7 +73,7 @@ function createTimer(name, domElement){
 
     function toHumanReadableTime(minutes, seconds, milliseconds){
         const min = (minutes < 10) ? "0" + minutes : minutes;
-        const sec = (seconds <10) ? "0" + seconds : seconds;
+        const sec = (seconds < 10) ? "0" + seconds : seconds;
         const ms = (milliseconds < 10) ? "0" + milliseconds : milliseconds;
         return `${min}:${sec}:${ms}`;
 
@@ -82,13 +82,13 @@ function createTimer(name, domElement){
         if(!paused){
             const curTime = new Date().getTime();
             const difference = curTime - startTime;
-            const timeRemaining = precideTimerSetting - difference;
+            const timeRemaining = preciseTimerSetting - difference;
            
             savedTime = difference;
 
             const minutes = Math.floor((timeRemaining % (1000*60*60)) / (1000*60));
             const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
-            const seconds = Math.floor((timeRemaining % (1000 * 60)) / 100);
+            const milliseconds = Math.floor((timeRemaining % (1000 * 60)) / 100);
 
             printDisplay(toHumanReadableTime(minutes, seconds, milliseconds));
         }
