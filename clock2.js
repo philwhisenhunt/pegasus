@@ -26,12 +26,13 @@ window.addEventListener('keydown', function(e) {
         e.preventDefault();
         if (e.keyCode == 32) {
             if(countdownTimer1.paused == 1){
-                countdownTimer1.start();
                 countdownTimer2.pause();
+                countdownTimer1.start();
+               
             }
             else{
-                countdownTimer2.start();
                 countdownTimer1.pause();
+                countdownTimer2.start();
             }
   
   
@@ -93,8 +94,6 @@ const countdownTimer = {
  
     getDisplayTime: function(){
       
-
-
         if(this.paused == 0){
             
             this.updatedTime = new Date().getTime();
