@@ -92,6 +92,24 @@ function createTimer(name, domElement){
 
             printDisplay(toHumanReadableTime(minutes, seconds, milliseconds));
         }
+
+        else{
+
+            const curTime = new Date().getTime();
+            const difference = curTime - startTime;
+            const timeRemaining = preciseTimerSetting - difference;
+      
+            savedTime = difference;
+            console.log("The saved time is " + savedTime);
+      
+            const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000*60));
+            const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+            const milliseconds = Math.floor((timeRemaining % (1000* 60)) /100);
+            //how do I get the savedTime out of this function? 
+      
+            printDisplay(toHumanReadableTime(minutes, seconds, milliseconds));
+      
+          }
     }
 
 }
