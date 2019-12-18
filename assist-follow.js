@@ -82,7 +82,7 @@ function createTimer(name, domElement){
         if(!paused){
             const curTime = new Date().getTime();
             const difference = curTime - startTime;
-            const timeRemaining = (preciseTimerSetting - difference);
+            const timeRemaining = (preciseTimerSetting - difference) - savedTime;
             if(savedTime){
                 timeRemaining = timeRemaining - savedTime;
             }
