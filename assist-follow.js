@@ -82,10 +82,11 @@ function createTimer(name, domElement){
         if(!paused){
             const curTime = new Date().getTime();
             const difference = curTime - startTime;
-            const timeRemaining = (preciseTimerSetting - difference) - savedTime;
-            if(savedTime){
-                timeRemaining = timeRemaining - savedTime;
-            }
+            const timeRemaining = (preciseTimerSetting - difference);
+            // if(savedTime){
+            //     console.log("in the if");
+            //     timeRemaining = timeRemaining - savedTime;
+            // }
            
             savedTime = difference;
 
@@ -94,6 +95,7 @@ function createTimer(name, domElement){
             const milliseconds = Math.floor((timeRemaining % (1000 * 60)) / 100);
 
             printDisplay(toHumanReadableTime(minutes, seconds, milliseconds));
+            console.log(savedTime + " is the saved time");
         }
 
         else{
