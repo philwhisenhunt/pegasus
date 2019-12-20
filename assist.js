@@ -94,13 +94,15 @@ let savedTime = null;
       const timeRemaining = preciseTimerSetting - difference;
 
       savedTime = difference;
+      console.log("The saved time is " + savedTime);
 
       const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000*60));
       const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
       const milliseconds = Math.floor((timeRemaining % (1000* 60)) /100);
       //how do I get the savedTime out of this function? 
 
-      printDisplay(toHumanReadableTime(minutes, seconds, milliseconds))
+      printDisplay(toHumanReadableTime(minutes, seconds, milliseconds));
     }
+
   }
 }
